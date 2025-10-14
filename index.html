@@ -51,10 +51,85 @@
         <table width="95%" cellpadding="10" cellspacing="0" border="3" bordercolor="#8B4513" bgcolor="#F5DEB3" style="height: calc(100vh - 200px); box-sizing: border-box; margin-bottom: 100px;">
             <tr>
                 <td style="height: 100%;">
-                    <!-- Main Content - Game Area -->
-                    <table width="100%" cellpadding="10" cellspacing="0" border="2" bordercolor="#8B4513" style="height: 100%; box-sizing: border-box;">
+                    <!-- Main Content Area with Turn Panel and Game -->
+                    <table width="100%" cellpadding="0" cellspacing="10" border="0" style="height: 100%; box-sizing: border-box;">
                         <tr>
-                            <td bgcolor="#FFFACD" id="gameArea" style="height: 100%; vertical-align: top; overflow: hidden;">
+                            <!-- Turn/Player Panel -->
+                            <td width="220" bgcolor="#E6E6FA" style="height: 100%; vertical-align: top; border: 2px inset #C0C0C0; padding: 15px;">
+                                <!-- Current Turn -->
+                                <table width="100%" bgcolor="#FFE4E1" cellpadding="8" cellspacing="1" border="1" bordercolor="#8B0000">
+                                    <tr>
+                                        <td align="center">
+                                            <font face="Arial, sans-serif" size="3" color="#8B0000">
+                                                <b>🌟 CURRENT TURN 🌟</b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" bgcolor="#FFFACD">
+                                            <font face="Times New Roman, serif" size="5" color="#2F4F2F">
+                                                <b>Duncan</b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                <br><br>
+                                
+                                <!-- Player List -->
+                                <font face="Arial, sans-serif" size="3" color="#4B0082">
+                                    <b>📜 PLAYERS 📜</b>
+                                </font>
+                                <br><br>
+                                
+                                <table width="100%" cellpadding="5" cellspacing="2" border="0">
+                                    <tr>
+                                        <td bgcolor="#F0F8FF">
+                                            <font face="Arial, sans-serif" size="3" color="#2F4F2F">
+                                                🧙‍♂️ Henry
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#FFE4E1">
+                                            <font face="Arial, sans-serif" size="3" color="#2F4F2F">
+                                                ⭐ <b>Duncan</b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#F0F8FF">
+                                            <font face="Arial, sans-serif" size="3" color="#2F4F2F">
+                                                🗡️ Luke
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#F0F8FF">
+                                            <font face="Arial, sans-serif" size="3" color="#2F4F2F">
+                                                🏹 Foley
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#F0F8FF">
+                                            <font face="Arial, sans-serif" size="3" color="#2F4F2F">
+                                                🔮 Lucas
+                                            </font>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#F0F8FF">
+                                            <font face="Arial, sans-serif" size="3" color="#2F4F2F">
+                                                ⚡ Chris
+                                            </font>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            
+                            <!-- Game Area -->
+                            <td bgcolor="#FFFACD" id="gameArea" style="height: 100%; vertical-align: top; overflow: hidden; border: 2px inset #8B4513; padding: 10px;">
                                 <!-- Game will be rendered here -->
                             </td>
                         </tr>
