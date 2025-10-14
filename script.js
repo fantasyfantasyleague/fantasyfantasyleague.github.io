@@ -21,14 +21,3 @@ function getBrowserInfo() {
     
     return browser;
 }
-
-// Classic visitor counter (fake but nostalgic!)
-function updateVisitorCount() {
-    var count = localStorage.getItem('visitorCount') || 12345;
-    count = parseInt(count) + 1;
-    localStorage.setItem('visitorCount', count);
-    
-    console.log("Visitor #" + count + " has entered the realm!");
-}
-
-updateVisitorCount();
