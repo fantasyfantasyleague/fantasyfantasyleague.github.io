@@ -1,0 +1,212 @@
+/* Classic 90s Fantasy Website Styling */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Times New Roman", serif;
+    background-color: #2F4F2F;
+    background-image: 
+        radial-gradient(circle at 20% 20%, #8B4513 1.5px, transparent 1.5px),
+        radial-gradient(circle at 80% 80%, #654321 1px, transparent 1px),
+        radial-gradient(circle at 60% 40%, #8B4513 1px, transparent 1px),
+        radial-gradient(circle at 40% 60%, #654321 1.5px, transparent 1.5px),
+        radial-gradient(circle at 10% 70%, #8B4513 1px, transparent 1px),
+        radial-gradient(circle at 90% 30%, #654321 1px, transparent 1px);
+    background-size: 25px 25px, 25px 25px, 30px 30px, 30px 30px, 20px 20px, 20px 20px;
+    background-position: 0 0, 12px 12px, 5px 15px, 20px 5px, 8px 8px, 18px 18px;
+}
+
+/* Blinking text animation - classic 90s! */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+/* Classic button styling with that old 3D effect */
+input[type="button"] {
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input[type="button"]:hover {
+    filter: brightness(1.2);
+    transform: translateY(-1px);
+}
+
+input[type="button"]:active {
+    border-style: inset !important;
+    transform: translateY(1px);
+}
+
+/* Classic table styling */
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+
+/* Navigation hover effects */
+td[bgcolor="#CD853F"]:hover {
+    background-color: #D2691E !important;
+    cursor: pointer;
+}
+
+/* Marquee styling for extra retro feel */
+marquee {
+    font-weight: bold;
+}
+
+/* Classic HR styling */
+hr {
+    height: 3px;
+    background: linear-gradient(to right, #8B4513, #DAA520, #8B4513);
+    border: none;
+}
+
+/* Classic font effects */
+font[color="#8B0000"] {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+font[color="#FFD700"] {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Retro frame effect for main content */
+table[bgcolor="#F5DEB3"] {
+    box-shadow: 
+        inset 2px 2px 5px rgba(255,255,255,0.8),
+        inset -2px -2px 5px rgba(0,0,0,0.3),
+        3px 3px 10px rgba(0,0,0,0.5);
+}
+
+/* Classic embossed effect for feature boxes */
+td[bgcolor="#E6E6FA"],
+td[bgcolor="#F0E68C"],
+td[bgcolor="#FFE4E1"] {
+    border: 2px outset #C0C0C0;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+td[bgcolor="#E6E6FA"]:hover,
+td[bgcolor="#F0E68C"]:hover,
+td[bgcolor="#FFE4E1"]:hover {
+    border: 2px inset #C0C0C0;
+    transform: translateY(1px);
+    cursor: pointer;
+}
+
+/* Classic scrollbar styling (works in some browsers) */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #C0C0C0;
+    border: 1px inset #C0C0C0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #808080;
+    border: 1px outset #808080;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #696969;
+}
+
+/* Classic link styling */
+a {
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+a:hover {
+    color: #FF0000;
+    text-decoration: none;
+}
+
+/* Selection styling */
+::selection {
+    background: #0000FF;
+    color: #FFFFFF;
+}
+
+/* Classic cursor effects */
+td[bgcolor="#CD853F"],
+input[type="button"],
+td[bgcolor="#E6E6FA"],
+td[bgcolor="#F0E68C"],
+td[bgcolor="#FFE4E1"] {
+    cursor: pointer;
+}
+
+/* Retro glow effect for special elements */
+font[size="7"] {
+    filter: drop-shadow(0 0 5px #DAA520);
+}
+
+/* Classic table cell padding and spacing */
+td {
+    vertical-align: top;
+}
+
+/* Old school form styling */
+input, select, textarea {
+    border: 2px inset #C0C0C0;
+    background: #FFFFFF;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 11px;
+}
+
+/* Classic status bar effect */
+table[bgcolor="#2F4F2F"] {
+    border-top: 1px solid #404040;
+    border-bottom: 1px solid #404040;
+}
+
+/* Retro image borders */
+img {
+    border: 2px outset #C0C0C0;
+}
+
+/* Classic disabled state */
+.disabled {
+    filter: grayscale(100%) brightness(0.7);
+    cursor: not-allowed;
+}
+
+/* Old school tooltip effect */
+[title] {
+    cursor: help;
+}
+
+/* Classic focus styling */
+*:focus {
+    outline: 1px dotted #000000;
+}
+
+/* Retro print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    table[bgcolor] {
+        background: white !important;
+        border: 1px solid black;
+    }
+}
