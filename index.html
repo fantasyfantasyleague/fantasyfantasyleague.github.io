@@ -159,6 +159,13 @@
                             <!-- Game Area -->
                             <td bgcolor="#FFFACD" id="gameArea" style="height: 100%; vertical-align: top; overflow: hidden; border: 2px inset #8B4513; padding: 10px;">
                                 <!-- Game will be rendered here -->
+                                <div id="controls">
+                                    <input id="host" placeholder="host" value="localhost">
+                                    <input id="password" type="password" placeholder="password">
+                                    <button id="connectBtn">Connect</button>
+                                </div>
+                                
+                                <div id="screen"></div>
                             </td>
                         </tr>
                     </table>
@@ -197,5 +204,34 @@
         document.addEventListener('DOMContentLoaded', startAnimation);
     </script>
     <script src="script.js"></script>
+
+    <script type="module">
+      import RFB from './noVNC/core/rfb.js';
+
+      let rfb = null;
+
+      document.getElementById('connectBtn').addEventListener('click', () => {
+        const host = document.getElementById('host').value;
+        // const port = document.getElementById('port').value;
+        const password = document.getElementById('password').value;
+
+        const url = `wss://${host}`; // or wss:// if using HTTPS
+        const screen = document.getElementById('screen');
+
+        // Clean up previous session if any
+        if (rfb) rfb.disconnect();
+
+        // Create RFB instance
+        rfb = new RFB(screen, url, { credentials: { password } });
+        rfb.viewOnly = false;
+        rfb.scaleViewport = true;
+        rfb.resizeSession = true;
+
+        // Log connection events
+        rfb.addEventListener('connect', () => console.log('Connected!'));
+        rfb.addEventListener('disconnect', (e) => console.warn('Disconnected:', e.detail.reason));
+        rfb.addEventListener('credentialsrequired', () => console.log('Credentials required'));
+      });
+    </script>
 </body>
 </html>
