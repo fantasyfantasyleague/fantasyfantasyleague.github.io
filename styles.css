@@ -178,3 +178,39 @@ img {
         border: 1px solid black;
     }
 }
+
+.animation-frame {
+    background: blue;
+    color: white;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.bubbles {
+    color: #cf21b2;
+    font-weight: bold;;
+}
+
+.blade {
+    color: gold;
+    font-weight: bold;
+}
+
+.handle {
+    color: silver;
+    font-weight: bold;
+}
+
+.gem {
+    color: red;
+}
+
+.rock {
+    color: #799cf2;
+}
+
+.plant {
+    color: greenyellow;
+}
