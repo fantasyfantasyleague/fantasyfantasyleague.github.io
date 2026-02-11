@@ -1,0 +1,27 @@
+Ok now to work on itemization.
+Should be the following slots:
+-head
+-body
+-legs
+-feet
+-mainhand
+-offhand
+-accessory
+
+What can items do? They can either boost your stats, or give you new actions.
+Right now the stats system is pretty limited. Make it so there are more stats like strength+agility+intelligence+etc.
+Make them change gameplay as you see fit.
+armor should also change your def stat.
+Items should have a weight. Weight should affect movement. Implement as you see fit.
+
+Initial items list seen below:
+Eg) a teleportation cloak gives you an action allowing you to teleport the unit to your starting area
+eg) gloves of haste: when you attack you swing twice
+eg) boots of speed: make you move farther
+eg) helm of constitution gives you more hp
+eg) leather vest that gives you +2 agility
+eg) flaming sword that gives you +1 ATK
+
+Add a random assortment of more items as you see fit.
+
+Players should be able to view their units' inventories and drop items on to the ground. And pick up items nearby.

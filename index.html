@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fantasy Fantasy League</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== MENU SCREEN ===== -->
+<div id="menu-screen" class="screen active">
+      <div class="ascii-knight"><div>                ,;~;,                                        </div><div>                   /\_                                       </div><div>                  (  /                                       </div><div>                  (()      //)                               </div><div>                  | \\  ,,;;'\                               </div><div>              __ _(  )m=(((((((((((((================--------</div><div>            /'  ' '()/~' '.(, |                              </div><div>         ,;(      )||     |  ~                               </div><div>        ,;' \    /-(.;,   )                                  </div><div>             ) /       ) /                                   </div><div>            //         ||                                    </div><div>           )_\         )_\                                   </div></div>
+
+  <div class="ascii-banner">
+    <div class="ascii-title"><div> ___         _                  ___         _                  _                           </div><div>| __|_ _ _ _| |_ __ _ ____  _  | __|_ _ _ _| |_ __ _ ____  _  | |   ___ __ _ __ _ _  _ ___ </div><div>| _/ _` | ' \  _/ _` (_-&lt; || | | _/ _` | ' \  _/ _` (_-&lt; || | | |__/ -_) _` / _` | || / -_)</div><div>|_|\__,_|_||_\__\__,_/__/\_, | |_|\__,_|_||_\__\__,_/__/\_, | |____\___\__,_\__, |\_,_\___|</div><div>                         |__/                           |__/                |___/          </div></div>
+  </div>
+  <!-- <div class="subtitle">A turn-based strategy game played over email</div> -->
+  <!-- <button class="btn" onclick="showSetup()">New Game</button> -->
+  <button class="btn" onclick="loadGame()">Load Game</button>
+  <input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileLoad(event)">
+</div>
+
+<!-- ===== SETUP SCREEN ===== -->
+<div id="setup-screen" class="screen">
+  <h2>New Game Setup</h2>
+  <div class="setup-box">
+    <div class="setup-row">
+      <label>Board Size:</label>
+      <select id="board-size">
+        <option value="12">12 x 12</option>
+        <option value="16">16 x 16</option>
+        <option value="20" selected>20 x 20</option>
+        <option value="24">24 x 24</option>
+        <option value="32">32 x 32</option>
+        <option value="40">40 x 40</option>
+        <option value="48">48 x 48</option>
+        <option value="64">64 x 64</option>
+      </select>
+    </div>
+    <div class="setup-row">
+      <label>Number of Players:</label>
+      <select id="num-players" onchange="updatePlayerSetup()">
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+    <div id="player-setups"></div>
+    <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: center;">
+      <button class="btn" onclick="showMenu()">Back</button>
+      <button class="btn btn-success" onclick="startNewGame()">Start Game</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GAME SCREEN ===== -->
+<div id="game-screen" class="screen">
+  <div id="game-content">
+    <!-- ASCII Art Sidebar -->
+    <div id="ascii-sidebar">
+      <!-- Wizard animation -->
+      <table>
+        <tr id="animation-frame-1" class="animation-frame">
+          <td>
+            <div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;"><div>                      .       </div><div>            /^\     .         </div><div>       /\   "V"               </div><div>      /__\   I      <span class="bubbles">O</span>  <span class="bubbles">o</span>      </div><div>     //..\\  I     .          </div><div>     \].`[/  I                </div><div>     /l\/j\  (]    .  <span class="bubbles">O</span>       </div><div>    /. ~~ ,\/I          .     </div><div>    \\L__j^\/I       <span class="bubbles">o</span>        </div><div>     \/--v}  I     <span class="bubbles">o</span>   .      </div><div>     |    |  I   _________    </div><div>     |    |  I c(`       ')o  </div><div>     |    l  I   \.     ,/    </div><div>   _/j  L l\_!  _//^---^\\_   </div><div>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div></div>
+          </td>
+        </tr>
+        <tr id="animation-frame-2" class="animation-frame" style="display:none;">
+          <td>
+            <div style="font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;"><div>                     .        </div><div>            /^\               </div><div>       /\   "V"    .  <span class="bubbles">o</span>       </div><div>      /__\   I       <span class="bubbles">O</span>        </div><div>     //..\\  I          .     </div><div>     \].`[/  I      . <span class="bubbles">O</span>       </div><div>     /l\/j\  (]           .   </div><div>    /. ~~ ,\/I     <span class="bubbles">o</span>   .      </div><div>    \\L__j^\/I                </div><div>     \/--v}  I    .           </div><div>     |    |  I   _____<span class="bubbles">O</span>___    </div><div>     |    |  I c(`       ')o  </div><div>     |    l  I   \.     ,/    </div><div>   _/j  L l\_!  _//^---^\\_   </div><div>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div></div>
+          </td>
+        </tr>
+      </table>
+      <!-- Sword -->
+      <table style="background-color: forestgreen; color: greenyellow;">
+        <tr>
+          <td>
+            <div style="width: 230px; font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;"><div class="handle">        _              </div><div class="handle">       (_)             </div><div class="handle">       |=|             </div><div class="handle">       |=|             </div><div class="handle">   /|__|_|__|\         </div><div class="handle">  (    <span class="gem">( )</span>    )        </div><div class="handle">   \|\/\"/\/|/         </div><div class="blade">     |  Y  |           </div><div class="blade">     |  |  |           </div><div class="blade">     |  |  |           </div><div class="rock">    _<span class="blade">|  |  |</span>           </div><div class="rock"> __/ <span class="blade">|  |  |</span>\          </div><div class="rock">/  \ <span class="blade">|  |  |</span>  \        </div><div class="rock">   __<span class="blade">|  |  |</span>   |       </div><div class="rock">/\/  <span class="blade">|  |  |</span>   |\      </div><div class="rock"> &lt;   +\ <span class="blade">|  |</span>\ /&gt;  \    </div><div class="rock">  &gt;   + \  <span class="blade">|</span> LJ    |   </div><div class="rock">        + \<span class="blade">|</span>+  \  &lt; \  </div><div class="rock">  <span style="color: red">(O)</span>      +    |    ) </div><div class="rock">   <span class="plant">|</span>             \  /\ </div><div class="rock"> <span class="plant">( | )</span>   <span style="color:red">(o)</span>      \/  )</div><div class="plant">_\\|//__( | )______<span class="rock">)_/</span> </div><div class="rock">        <span class="plant">\\|//</span>          </div></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="board-container">
+      <div id="game-header">
+        <div class="turn-info" id="turn-info">Turn 1 - Player 1</div>
+        <div class="header-buttons">
+          <button class="btn btn-small" onclick="saveGame()">Save</button>
+          <button class="btn btn-small btn-danger" onclick="endTurn()">End Turn</button>
+          <!-- <button class="btn btn-small" onclick="showMenu()">Menu</button> -->
+        </div>
+      </div>
+      <div id="board"></div>
+    </div>
+    <div id="side-panel">
+      <!-- Resources -->
+      <div class="panel-section">
+        <h3>Resources</h3>
+        <div class="resources-display" id="resources-display"></div>
+      </div>
+      <!-- Selected Unit -->
+      <div class="panel-section" id="unit-panel" style="display:none;">
+        <h3>Selected Unit</h3>
+        <div class="unit-info-block" id="unit-info"></div>
+      </div>
+      <!-- Actions -->
+      <div class="panel-section" id="actions-panel" style="display:none;">
+        <h3>Actions</h3>
+        <div class="actions-list" id="actions-list"></div>
+      </div>
+      <!-- Production -->
+      <div class="panel-section">
+        <h3>Production</h3>
+        <div id="production-list"></div>
+      </div>
+    </div>
+    <!-- Log Column -->
+    <div id="log-panel">
+      <div class="panel-section" style="flex:1;display:flex;flex-direction:column;">
+        <h3>Log</h3>
+        <div id="combat-log"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== END TURN CONFIRM OVERLAY ===== -->
+<div id="end-turn-confirm-overlay">
+  <h2>End Turn?</h2>
+  <p>Are you sure you want to end your turn?</p>
+  <div class="overlay-buttons">
+    <button class="btn" onclick="cancelEndTurn()">Cancel</button>
+    <button class="btn btn-danger" onclick="confirmEndTurn()">End Turn</button>
+  </div>
+</div>
+
+<!-- ===== TURN OVERLAY ===== -->
+<div id="turn-overlay">
+  <h2 id="overlay-title">Turn Complete!</h2>
+  <p id="overlay-message">Save the game file and email it to the next player.</p>
+  <div class="overlay-buttons">
+    <button class="btn" onclick="saveGame()">Save Game</button>
+    <!-- <button class="btn btn-success" onclick="continueTurn()">Continue (Local Play)</button> -->
+  </div>
+</div>
+
+<script src="game.js"></script>
+<script>
+// Wizard animation
+function startAnimation() {
+  const frame1 = document.getElementById('animation-frame-1');
+  const frame2 = document.getElementById('animation-frame-2');
+  if (!frame1 || !frame2) return;
+  frame1.style.display = 'table-row';
+  frame2.style.display = 'none';
+  let currentFrame = 1;
+  setInterval(() => {
+    if (currentFrame === 1) {
+      frame1.style.display = 'none';
+      frame2.style.display = 'table-row';
+      currentFrame = 2;
+    } else {
+      frame1.style.display = 'table-row';
+      frame2.style.display = 'none';
+      currentFrame = 1;
+    }
+  }, 200);
+}
+document.addEventListener('DOMContentLoaded', startAnimation);
+</script>
+</body>
+</html>

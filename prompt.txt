@@ -1,0 +1,40 @@
+PROMPT FOR NEW GAME I WANNA MAKE:
+Game name: fantasy fantasy league
+Played over email by 1-4 players.
+Should be a static web app implemented using only CSS/javascript/html
+Turn based like a boardgame
+When a player's turn is done, they will click save to export a json file that represents the state of the game: the board/whose turn it is/all the units/items/etc on the board.
+They will then email it to the next person, who will load the file, complete there turn, etc.
+
+The board: configurable grid. Default to 20x20.
+We need the ability to start a new game. So when opening the web page there needs to be a start new game button.
+When generating a new game need to be able to select number of players and which faction each player is.
+This will generate a new game json.
+The board should be populated with the players, each starting with 2 basic worker units and a hero unit.
+The board should be filled with resources that are randomly generated.
+Resource types: stone (red), trees (green), gold (yellow), water (blue)
+
+Game basics:
+Available factions: at first, just one: goblins.
+There will be more factions eventually so need to track which faction each player is.
+we will start with just 3 unit types: goblin workers, goblin warriors, and goblin heros.
+Each unit needs to have certain stats and properties to determine movement and combat. Please determine what makes sense for this game, should be similar to eg) mordheim or DnD. Doesn't need to be too complex.
+Each unit does need to have an inventory and equipped items though. Can be basic at first just leather armor in each slot and a sword in hand.
+Workers can't fight, but can be assigned to gather resources.
+Warriors and heros can't gather resources but can explore and fight.
+Players can produce new units using resources. Please determine what costs/resource types make sense.
+Production time is instant within a player's turn as long as they have the resources.
+
+What should a turn look like?
+A turn consists of moving whichever units you want, as long as they have movement available.
+A worker can attempt to gather a resource.
+Each unit can attack once.
+That's it for now..
+
+What should the game look like visually?
+The game should be rendered in ascii characters.
+So, eg) a space on the grid occupied by a stone resource, should be a red square.
+A space on the grid occupied by a hero unit, might be a capital X.
+Please choose ascii characters for each unit that make sense.
+
+Based on the above description, create this game in basic html/js/css, so that it is playable immediately.

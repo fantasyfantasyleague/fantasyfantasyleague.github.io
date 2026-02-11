@@ -1,0 +1,14 @@
+Ok we already have goblins. What else do we want?
+
+Humans
+Elves
+Orcs
+Dwarves
+
+And each one should start with an appropriate hero with a different loadout based on the race.
+
+What distinguishes each race? They will eventually have different units.
+For now they can just be distinguished by:
+-different stats for base units. Make it balanced but varied
+-different stats/loadout for hero
+-each hero should also have an ability that pertains to its faction: eg) elf hero can leap over resources at a distance of 1. So can leap over a stone wall 1 block thick and land on other side.
