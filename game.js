@@ -10,7 +10,7 @@ const FACTIONS = {
   goblins: {
     name: 'Goblins', prefix: 'Goblin',
     chars: { worker: 'g', warrior: 'ɡ', hero: 'G' },
-    heroAbility: { id: 'goblin_ambush', name: 'Ambush', desc: 'Vanish and reappear within 3 tiles, ignoring obstacles' },
+    heroAbility: { id: 'goblin_disengage', name: 'Disengage', desc: 'Move away from enemies without triggering Attacks of Opportunity this turn' },
     unitOverrides: {
       worker:  { hp: 3, movement: 4, attack: 1, defense: 0, str: 0, agi: 4, con: 0, int: 2 },
       warrior: { hp: 6, movement: 5, attack: 2, defense: 1, str: 1, agi: 3, con: 0, int: 0, startingEquipment: { mainhand: 'poisoned_dagger' } },
@@ -50,7 +50,7 @@ const FACTIONS = {
   dwarves: {
     name: 'Dwarves', prefix: 'Dwarf',
     chars: { worker: 'd', warrior: '⚒', hero: '⛏' },
-    heroAbility: { id: 'dwarf_stoneskin', name: 'Stone Skin', desc: '+5 DEF until end of turn' },
+    heroAbility: { id: 'dwarf_muster', name: 'Muster', desc: 'New units can spawn near the hero instead of home base this turn' },
     unitOverrides: {
       worker:  { hp: 5, movement: 2, attack: 1, defense: 2, str: 1, agi: 0, con: 2, int: 2 },
       warrior: { hp: 10, movement: 3, attack: 2, defense: 3, str: 2, agi: 0, con: 2, int: 0, startingEquipment: { mainhand: 'mace', offhand: 'buckler' } },
@@ -181,7 +181,7 @@ const RESOURCE_TYPES = ['wood', 'stone', 'gold', 'water'];
 const RESOURCE_CHARS = { wood: '♣', stone: '●', gold: '★', water: '~' };
 const RESOURCE_COLORS = { wood: '#228B22', stone: '#8B0000', gold: '#DAA520', water: '#4682B4' };
 const RESOURCE_WEIGHTS = { wood: 8, stone: 7, gold: 5, water: 5 };
-const RESOURCE_DENSITY = 0.32;
+const RESOURCE_DENSITY = 0.5;
 
 // ============================================================
 // GAME STATE
@@ -227,15 +227,23 @@ function getUnitStats(unit) {
   }
 
   const attack = unit.attack + equipAtk + totalStr + (unit.rallyBonus || 0);
-  const defense = unit.defense + equipDef + (unit.stoneSkinBonus || 0);
+  const intDefBonus = Math.floor(totalInt / 3); // Tactical awareness
+  const defense = unit.defense + equipDef + intDefBonus + (unit.stoneSkinBonus || 0);
   const maxHp = unit.maxHp + totalCon * 2;
-  const agiBonus = Math.floor(totalAgi / 5);
-  const weightPenalty = Math.max(0, Math.floor((totalWeight - 10) / 5));
+  const agiBonus = Math.floor(totalAgi / 3); // Improved scaling (was /5)
+  const weightThreshold = 10 + totalStr; // STR increases carry capacity
+  const weightPenalty = Math.max(0, Math.floor((totalWeight - weightThreshold) / 5));
   const movement = Math.max(1, unit.movement + agiBonus - weightPenalty);
   const gatherBonus = Math.floor(totalInt / 2);
 
+  // Combat proc chances (percentage, 0-100)
+  const dodgeChance = Math.min(40, totalAgi * 4);       // AGI × 4%, cap 40%
+  const critChance = Math.min(50, totalInt * 5);        // INT × 5%, cap 50% — tactical precision
+  const crushChance = Math.min(30, totalStr * 3);       // STR × 3%, cap 30% — crushing blow
+
   return { str: totalStr, agi: totalAgi, con: totalCon, int: totalInt,
-           attack, defense, maxHp, movement, weight: totalWeight, gatherBonus, attackRange, actions };
+           attack, defense, maxHp, movement, weight: totalWeight, gatherBonus, attackRange, actions,
+           dodgeChance, critChance, crushChance };
 }
 
 function itemStatString(item) {
@@ -689,7 +697,7 @@ function renderBoard() {
       if (interactionMode === 'place' && reachableTiles.some(t => t.x === x && t.y === y)) {
         cell.classList.add('highlight-place');
       }
-      if ((interactionMode === 'ambush' || interactionMode === 'leap') && reachableTiles.some(t => t.x === x && t.y === y)) {
+      if (interactionMode === 'leap' && reachableTiles.some(t => t.x === x && t.y === y)) {
         cell.classList.add('highlight-move');
       }
 
@@ -722,7 +730,7 @@ function renderUnitPanel() {
     for (const gi of items) {
       const statStr = itemStatString(gi.item);
       html += `<div class="inv-item">
-        <span class="item-name" title="${gi.item.description || ''}">${gi.item.name}</span>
+        <span class="item-name" data-tip="${gi.item.description || ''}">${gi.item.name}</span>
         <span class="item-stats">(${SLOT_LABELS[gi.item.slot]}) ${statStr}</span>
       </div>`;
       if (gi.item.description) html += `<div style="font-size:10px;color:#555;padding:0 4px 2px;font-style:italic;">${gi.item.description}</div>`;
@@ -744,18 +752,18 @@ function renderUnitPanel() {
   let html = `
     <div class="unit-name" style="color: ${unitColor}">${u.name} (${ownerName})</div>
     <div class="stat-grid">
-      <div class="info-row"><span class="label" title="Hit Points. Unit dies at 0.">HP</span><span>${u.hp} / ${stats.maxHp}</span></div>
-      <div class="info-row"><span class="label" title="Spaces this unit can move per turn.">Move</span><span>${u.movementLeft} / ${stats.movement}</span></div>
-      <div class="info-row"><span class="label" title="Attack power. Rolled as D6 + ATK vs enemy DEF.">ATK</span><span>${stats.attack}</span></div>
-      <div class="info-row"><span class="label" title="Defense power. Enemy rolls D6 + ATK vs your D6 + DEF.">DEF</span><span>${stats.defense}</span></div>
-      <div class="info-row"><span class="label" title="Attack range in tiles. 1 = melee (adjacent only).">Range</span><span>${stats.attackRange > 1 ? stats.attackRange + ' (ranged)' : '1 (melee)'}</span></div>
+      <div class="info-row"><span class="label" data-tip="Hit Points. Unit dies at 0.">HP</span><span>${u.hp} / ${stats.maxHp}</span></div>
+      <div class="info-row"><span class="label" data-tip="Spaces this unit can move per turn.">Move</span><span>${u.movementLeft} / ${stats.movement}</span></div>
+      <div class="info-row"><span class="label" data-tip="Attack power. Rolled as D6 + ATK + 2 vs enemy D6 + DEF. Damage = difference (min 1 on hit).">ATK</span><span>${stats.attack}</span></div>
+      <div class="info-row"><span class="label" data-tip="Defense power. Enemy rolls D6 + ATK + 2 vs your D6 + DEF. Higher DEF reduces incoming damage.">DEF</span><span>${stats.defense}</span></div>
+      <div class="info-row"><span class="label" data-tip="Attack range in tiles. 1 = melee (adjacent only).">Range</span><span>${stats.attackRange > 1 ? stats.attackRange + ' (ranged)' : '1 (melee)'}</span></div>
     </div>
     <div class="stat-grid" style="margin-top:2px;">
-      <div class="info-row"><span class="label" title="Strength. +1 ATK per point.">STR</span><span>${stats.str}</span></div>
-      <div class="info-row"><span class="label" title="Agility. +1 movement per 5 points (reduced by weight penalty).">AGI</span><span>${stats.agi}</span></div>
-      <div class="info-row"><span class="label" title="Constitution. +2 max HP per point.">CON</span><span>${stats.con}</span></div>
-      <div class="info-row"><span class="label" title="Intelligence. +1 gather yield per 2 points.">INT</span><span>${stats.int}</span></div>
-      <div class="info-row"><span class="label" title="Total equipment weight. Above 10, every 5 weight costs -1 movement.">Weight</span><span>${stats.weight}</span></div>
+      <div class="info-row"><span class="label" data-tip="Strength — +1 ATK per point. ${stats.crushChance}% Crushing Blow chance (deals +2 bonus damage on hit). Weight penalty threshold raised to ${10 + stats.str} (from base 10).">STR</span><span>${stats.str}${stats.crushChance > 0 ? ` <span style='color:#c44;font-size:10px'>(${stats.crushChance}% crush)</span>` : ''}</span></div>
+      <div class="info-row"><span class="label" data-tip="Agility — +1 movement per 3 points. ${stats.dodgeChance}% Dodge chance (completely negates an incoming attack).">AGI</span><span>${stats.agi}${stats.dodgeChance > 0 ? ` <span style='color:#4a4;font-size:10px'>(${stats.dodgeChance}% dodge)</span>` : ''}</span></div>
+      <div class="info-row"><span class="label" data-tip="Constitution — +2 max HP per point.">CON</span><span>${stats.con}</span></div>
+      <div class="info-row"><span class="label" data-tip="Intelligence — ${stats.critChance}% Critical Hit chance (1.5× damage). +1 DEF per 3 points (tactical awareness). +1 gather yield per 2 points.">INT</span><span>${stats.int}${stats.critChance > 0 ? ` <span style='color:#48f;font-size:10px'>(${stats.critChance}% crit)</span>` : ''}</span></div>
+      <div class="info-row"><span class="label" data-tip="Total equipment weight. Above ${10 + stats.str}, every 5 weight costs −1 movement.">Weight</span><span>${stats.weight}</span></div>
       <div class="info-row"><span class="label">Type</span><span>${capitalize(u.type)}</span></div>
     </div>`;
 
@@ -768,7 +776,7 @@ function renderUnitPanel() {
       const twoHandTag = item.twoHanded ? ' <span class="two-hand-tag">[2H]</span>' : '';
       html += `<div class="equip-slot">
         <span class="label">${SLOT_LABELS[slot]}:</span>
-        <span class="item-name" title="${item.description || ''}">${item.name}${twoHandTag}</span>
+        <span class="item-name" data-tip="${item.description || ''}">${item.name}${twoHandTag}</span>
         <span class="item-stats">${statStr}</span>
         ${isOwned ? `<button class="btn-tiny" onclick="unequipItem(${u.id}, '${slot}')">✕</button>` : ''}
       </div>`;
@@ -790,7 +798,7 @@ function renderUnitPanel() {
       const item = u.inventory[i];
       const statStr = itemStatString(item);
       html += `<div class="inv-item">
-        <span class="item-name" title="${item.description || ''}">${item.name}</span>
+        <span class="item-name" data-tip="${item.description || ''}">${item.name}</span>
         <span class="item-stats">(${SLOT_LABELS[item.slot]}) ${statStr}</span>
         <span class="inv-buttons">
         ${isOwned ? `<button class="btn-tiny" onclick="equipItem(${u.id}, ${i})">Equip</button>
@@ -892,12 +900,13 @@ function renderActionsPanel() {
   if (u.type === 'hero' && u.faction) {
     const ability = FACTIONS[u.faction].heroAbility;
     if (ability && !u.specialActionsUsed.includes(ability.id)) {
-      if (ability.id === 'goblin_ambush') {
+      if (ability.id === 'goblin_disengage') {
         addAction(list, ability.name, ability.desc, () => {
-          interactionMode = 'ambush';
-          reachableTiles = getAmbushTiles(u);
-          renderBoard();
-        }, interactionMode === 'ambush');
+          u.disengaged = true;
+          u.specialActionsUsed.push('goblin_disengage');
+          addLog(`💨 ${u.name} prepares to disengage! (no AoO this turn)`);
+          renderAll();
+        });
       }
       if (ability.id === 'human_rally' && hasAdjacentAlly(u)) {
         addAction(list, ability.name, ability.desc, () => {
@@ -919,9 +928,12 @@ function renderActionsPanel() {
           executeWarCry(u);
         });
       }
-      if (ability.id === 'dwarf_stoneskin') {
+      if (ability.id === 'dwarf_muster') {
         addAction(list, ability.name, ability.desc, () => {
-          executeStoneSkin(u);
+          u.musterActive = true;
+          u.specialActionsUsed.push('dwarf_muster');
+          addLog(`⛏ ${u.name} rallies the forge! New units can spawn near the hero this turn.`);
+          renderAll();
         });
       }
     }
@@ -1053,22 +1065,7 @@ function onCellClick(x, y) {
     interactionMode = 'idle';
   }
 
-  // AMBUSH MODE (Goblin hero teleport)
-  if (interactionMode === 'ambush' && selectedUnitId !== null) {
-    if (reachableTiles.some(t => t.x === x && t.y === y) && !clickedUnit) {
-      const su = getUnit(selectedUnitId);
-      su.x = x;
-      su.y = y;
-      su.specialActionsUsed.push('goblin_ambush');
-      addLog(`🗡 ${su.name} ambushes to (${x},${y})!`);
-      interactionMode = 'idle';
-      reachableTiles = [];
-      renderAll();
-      return;
-    }
-    interactionMode = 'idle';
-    reachableTiles = [];
-  }
+
 
   // LEAP MODE (Elf hero jump over obstacles)
   if (interactionMode === 'leap' && selectedUnitId !== null) {
@@ -1162,8 +1159,11 @@ function moveUnit(unit, x, y) {
   const path = bfsDistance(unit, x, y);
   if (path === null || path > unit.movementLeft) return;
 
-  // Attack of Opportunity
-  const adjacentEnemies = G.units.filter(u =>
+  // Attack of Opportunity (Goblin Disengage bypasses this)
+  if (unit.disengaged) {
+    // Goblin hero ability: skip AoO entirely
+  }
+  const adjacentEnemies = unit.disengaged ? [] : G.units.filter(u =>
     u.hp > 0 && u.playerId !== unit.playerId && u.canFight &&
     isAdjacent(unit.x, unit.y, u.x, u.y) &&
     !isAdjacent(x, y, u.x, u.y)
@@ -1229,16 +1229,37 @@ function performAttack(attacker, defender, { isAoO = false, isDoubleStrike = fal
   const aStats = getUnitStats(attacker);
   const dStats = getUnitStats(defender);
 
+  const prefix = isAoO ? '⚡ AoO: ' : isDoubleStrike ? '⚡ ' : '';
+
+  // Dodge check (AGI-based)
+  if (Math.random() * 100 < dStats.dodgeChance) {
+    addLog(`${prefix}${attacker.name} ${isAoO ? 'swings at' : 'attacks'} ${defender.name} — 🌀 DODGED! (${dStats.dodgeChance}% chance)`);
+    return false;
+  }
+
   const atkRoll = rollD6() + aStats.attack + 2; // +2 attacker advantage
   const defRoll = rollD6() + dStats.defense;
   let damage = Math.max(0, atkRoll - defRoll);
   if (atkRoll > defRoll) damage = Math.max(1, damage);
 
-  const prefix = isAoO ? '⚡ AoO: ' : isDoubleStrike ? '⚡ ' : '';
+  // Critical hit (INT-based) — tactical precision
+  let isCrit = false;
+  if (damage > 0 && Math.random() * 100 < aStats.critChance) {
+    damage = Math.ceil(damage * 1.5);
+    isCrit = true;
+  }
+
+  // Crushing blow (STR-based) — raw power
+  let isCrush = false;
+  if (damage > 0 && !isCrit && Math.random() * 100 < aStats.crushChance) {
+    damage += 2;
+    isCrush = true;
+  }
 
   if (damage > 0) {
+    const procTag = isCrit ? ' 💥CRIT!' : isCrush ? ' 🔨CRUSH!' : '';
     defender.hp -= damage;
-    addLog(`${prefix}${attacker.name} ${isAoO ? 'hits' : 'attacks'} ${defender.name} — ${atkRoll} vs ${defRoll} → ${damage} damage! (${defender.hp > 0 ? defender.hp + ' HP left' : 'DEFEATED!'})`);
+    addLog(`${prefix}${attacker.name} ${isAoO ? 'hits' : 'attacks'} ${defender.name} — ${atkRoll} vs ${defRoll} → ${damage} damage!${procTag} (${defender.hp > 0 ? defender.hp + ' HP left' : 'DEFEATED!'})`);
 
     if (defender.hp <= 0) {
     defender.hp = 0;
@@ -1315,25 +1336,6 @@ function resolveDoubleStrike(attacker, defender) {
 // ============================================================
 // FACTION ABILITIES
 // ============================================================
-function getAmbushTiles(unit) {
-  // Goblin Ambush: teleport to any empty tile within 3 Chebyshev distance
-  const tiles = [];
-  for (let dy = -3; dy <= 3; dy++) {
-    for (let dx = -3; dx <= 3; dx++) {
-      const nx = unit.x + dx;
-      const ny = unit.y + dy;
-      if (nx < 0 || nx >= G.boardSize || ny < 0 || ny >= G.boardSize) continue;
-      if (nx === unit.x && ny === unit.y) continue;
-      if (chebyshevDist(unit.x, unit.y, nx, ny) > 3) continue;
-      // Must be empty (no unit)
-      if (G.units.some(u => u.hp > 0 && u.x === nx && u.y === ny)) continue;
-      // Can land on resource tiles (ambush ignores terrain)
-      tiles.push({ x: nx, y: ny });
-    }
-  }
-  return tiles;
-}
-
 function getLeapTiles(unit) {
   // Elf Leap: jump over an adjacent obstacle/resource to the tile beyond it
   const tiles = [];
@@ -1386,13 +1388,7 @@ function executeWarCry(unit) {
   renderAll();
 }
 
-function executeStoneSkin(unit) {
-  // Dwarf Stone Skin: +5 DEF until next turn
-  unit.stoneSkinBonus = 5;
-  unit.specialActionsUsed.push('dwarf_stoneskin');
-  addLog(`🪨 ${unit.name} activates Stone Skin! (+5 DEF)`);
-  renderAll();
-}
+
 
 function executeTeleportHome(unit) {
   const sp = G.startPositions ? G.startPositions[unit.playerId >= 0 ? unit.playerId : 0] : null;
@@ -1608,6 +1604,7 @@ function startPlacement(type) {
   const cy = sp ? sp.hy : 1;
   const radius = Math.max(3, Math.floor(G.boardSize / 4));
 
+  // Home base spawn area
   for (let dy = -radius; dy <= radius; dy++) {
     for (let dx = -radius; dx <= radius; dx++) {
       const nx = cx + dx, ny = cy + dy;
@@ -1618,6 +1615,27 @@ function startPlacement(type) {
       if (getUnitAt(nx, ny)) continue;
       if (G.board[ny][nx]) continue;
       tiles.push({ x: nx, y: ny });
+    }
+  }
+
+  // Dwarf Muster: also allow spawning near the hero
+  const p = G.players[G.currentPlayer];
+  if (p.faction === 'dwarves') {
+    const hero = G.units.find(u => u.playerId === G.currentPlayer && u.type === 'hero' && u.hp > 0 && u.musterActive);
+    if (hero) {
+      const musterRadius = 2;
+      for (let dy = -musterRadius; dy <= musterRadius; dy++) {
+        for (let dx = -musterRadius; dx <= musterRadius; dx++) {
+          const nx = hero.x + dx, ny = hero.y + dy;
+          const key = `${nx},${ny}`;
+          if (checked.has(key)) continue;
+          checked.add(key);
+          if (nx < 0 || nx >= G.boardSize || ny < 0 || ny >= G.boardSize) continue;
+          if (getUnitAt(nx, ny)) continue;
+          if (G.board[ny][nx]) continue;
+          tiles.push({ x: nx, y: ny });
+        }
+      }
     }
   }
 
@@ -1703,6 +1721,8 @@ function confirmEndTurn() {
       u.specialActionsUsed = [];
       u.rallyBonus = 0;
       u.stoneSkinBonus = 0;
+      u.disengaged = false;
+      u.musterActive = false;
       u.stunned = false;
     }
   }
@@ -1766,6 +1786,8 @@ function handleFileLoad(event) {
         u.rallyBonus = u.rallyBonus || 0;
         u.stoneSkinBonus = u.stoneSkinBonus || 0;
         u.stunned = u.stunned || false;
+        u.disengaged = u.disengaged || false;
+        u.musterActive = u.musterActive || false;
         if (!u.equipment.mainhand && u.equipment.hands) {
           u.equipment.mainhand = u.equipment.hands;
           delete u.equipment.hands;
@@ -1873,4 +1895,24 @@ function addLog(msg) {
 // ============================================================
 // INIT
 // ============================================================
+
+// Stat tooltip bar — show data-tip text at bottom of screen on hover
+(function() {
+  const bar = document.getElementById('stat-tooltip-bar');
+  if (!bar) return;
+  document.body.addEventListener('mouseover', function(e) {
+    const el = e.target.closest('[data-tip]');
+    if (el) {
+      bar.textContent = el.getAttribute('data-tip');
+      bar.classList.add('visible');
+    }
+  });
+  document.body.addEventListener('mouseout', function(e) {
+    const el = e.target.closest('[data-tip]');
+    if (el) {
+      bar.classList.remove('visible');
+    }
+  });
+})();
+
 updatePlayerSetup();

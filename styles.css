@@ -257,7 +257,25 @@ body {
   margin: 3px 0;
 }
 .panel-section .info-row .label { color: #4B0082; font-weight: bold; }
-.panel-section .info-row .label[title] { cursor: help; border-bottom: 1px dotted #4B0082; }
+.panel-section .info-row .label[data-tip] { cursor: help; border-bottom: 1px dotted #4B0082; }\n.item-name[data-tip] { cursor: help; }
+
+/* Stat tooltip bar pinned to bottom of game screen */
+#stat-tooltip-bar {
+  background: linear-gradient(to right, #1a0a2e, #2a1a3e, #1a0a2e);
+  color: #e0d0f0;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-top: 2px solid #DAA520;
+  text-align: center;
+  min-height: 20px;
+  font-family: inherit;
+  transition: opacity 0.15s;
+  opacity: 0;
+  pointer-events: none;
+}
+#stat-tooltip-bar.visible {
+  opacity: 1;
+}
 
 /* Resources display */
 .resources-display { display: flex; gap: 10px; flex-wrap: wrap; }
