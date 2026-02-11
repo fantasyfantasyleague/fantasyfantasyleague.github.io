@@ -16,7 +16,7 @@
     <div class="ascii-title"><div> ___         _                  ___         _                  _                           </div><div>| __|_ _ _ _| |_ __ _ ____  _  | __|_ _ _ _| |_ __ _ ____  _  | |   ___ __ _ __ _ _  _ ___ </div><div>| _/ _` | ' \  _/ _` (_-&lt; || | | _/ _` | ' \  _/ _` (_-&lt; || | | |__/ -_) _` / _` | || / -_)</div><div>|_|\__,_|_||_\__\__,_/__/\_, | |_|\__,_|_||_\__\__,_/__/\_, | |____\___\__,_\__, |\_,_\___|</div><div>                         |__/                           |__/                |___/          </div></div>
   </div>
   <!-- <div class="subtitle">A turn-based strategy game played over email</div> -->
-  <button class="btn" onclick="showSetup()">New Game</button>
+  <!-- <button class="btn" onclick="showSetup()">New Game</button> -->
   <button class="btn" onclick="loadGame()">Load Game</button>
   <input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileLoad(event)">
 </div>
@@ -138,10 +138,10 @@
 <!-- ===== TURN OVERLAY ===== -->
 <div id="turn-overlay">
   <h2 id="overlay-title">Turn Complete!</h2>
-  <p id="overlay-message">Save the game file and email it to the next player, or click Continue for local play.</p>
+  <p id="overlay-message">Save the game file and email it to the next player.</p>
   <div class="overlay-buttons">
     <button class="btn" onclick="saveGame()">Save Game</button>
-    <button class="btn btn-success" onclick="continueTurn()">Continue (Local Play)</button>
+    <!-- <button class="btn btn-success" onclick="continueTurn()">Continue (Local Play)</button> -->
   </div>
 </div>
 
