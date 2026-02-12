@@ -9,7 +9,7 @@ const BEAST_COLOR = '#9932CC';
 const FACTIONS = {
   goblins: {
     name: 'Goblins', prefix: 'Goblin',
-    chars: { worker: 'g', warrior: 'ɡ', hero: 'G' },
+    chars: { worker: 'g', warrior: 'ǧ', hero: 'G' },
     heroAbility: { id: 'goblin_disengage', name: 'Disengage', desc: 'Move away from enemies without triggering Attacks of Opportunity this turn' },
     unitOverrides: {
       worker:  { hp: 3, movement: 4, attack: 1, defense: 0, str: 0, agi: 4, con: 0, int: 2 },
@@ -29,7 +29,7 @@ const FACTIONS = {
   },
   elves: {
     name: 'Elves', prefix: 'Elf',
-    chars: { worker: 'e', warrior: '⌁', hero: '✦' },
+    chars: { worker: 'e', warrior: '➶', hero: '✦' },
     heroAbility: { id: 'elf_leap', name: 'Leap', desc: 'Jump over a 1-thick obstacle to land on the other side' },
     unitOverrides: {
       worker:  { hp: 3, movement: 3, attack: 1, defense: 1, str: 0, agi: 3, con: 0, int: 3 },
