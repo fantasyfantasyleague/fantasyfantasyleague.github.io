@@ -1,9 +1,9 @@
 // ============================================================
 // FEATURE FLAGS
 // ============================================================
-const ALLOW_NEW_GAME = true;
-const ALLOW_LOCAL_PLAY = true;
-const ALLOW_CONSOLE_COMMANDS = true;
+const ALLOW_NEW_GAME = false;
+const ALLOW_LOCAL_PLAY = false;
+const ALLOW_CONSOLE_COMMANDS = false;
 
 // ============================================================
 // CONSTANTS
