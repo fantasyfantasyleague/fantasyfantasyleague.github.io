@@ -1,0 +1,9 @@
+We need to add consumable items. Ie items that are gone once used.
+CONSUMABLES ARE DIFFERENT FROM REGULAR ITEMS. THEY DO NOT SPAWN ON THE GROUND OR IN THE SHOP.
+For now they can only spawn on Foul Beasts as bonus items (ie a foul beast might have some armor AND a healing potion)
+Healing potion.
+Speed potion.
+Rage potion makes u better attacking for the turn
+Stoneskin potion gives u stoneskin for the next turn (incl enemy's turn)
+
+Later we will add a Refreshments Shop that holds these types of items, but not yet. For now just implement them.

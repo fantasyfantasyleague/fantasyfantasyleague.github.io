@@ -1,0 +1,9 @@
+Add these new factions. Complete with base units + loadouts. 3 heros each.
+
+Skeletons - flimsy, maybe somehow can amass a big weak army quick
+
+Trolls - large, clumsy, tough to kill, strong
+
+Bard Guild (human) - centered around instruments and buffs
+
+Kobolds - centered around resource gathering/items/gold.

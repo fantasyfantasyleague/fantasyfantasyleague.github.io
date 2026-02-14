@@ -1,0 +1,8 @@
+Implement the following changes:
+Goblin assassin: increase health
+Human knight: give a lower tier weapon
+Elves Druid: give new ability to heal a target
+Orc berserker: reduce health, give executioner passive, remove combat regen
+Troll Brute: reduce health, remove steadfast, give Extended Reach
+Bard virtuoso: increase health, give a brand new aura that stacks and gives +1 INT, give them a different weapon
+Kobold sapper: increase health

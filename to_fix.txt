@@ -1,0 +1,6 @@
+chain lightning//
+
+what about equipping/unequipping mid turn to do a bunch of stuff.. its fine?
+ya make it so if you do an action you cant also equip/unequipping in same turn
+
+beast retalite? sometimes seems to retaliate twice?

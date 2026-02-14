@@ -1,0 +1,8 @@
+Need a way for player units to get retaliation. Add the following items:
+
+Paste of Reaping What One Sow's --> consumable, permanently gives the consumer Retaliation passive. Found on beasts or in vendor.
+Ogre Head on a Stick --> 1h mace that bites back. Mace that gives retaliation.
+Gloves of Retaliation --> hand slot, no stats except some weight, grants retaliation.
+Eyes on Back of Head --> accessory, no stats, grants retaliation.
+Karmic Shield --> shield gives some def and weight and grants retaliation.
+Spiteful Flail --> 2h decent flail that gives retaliation.

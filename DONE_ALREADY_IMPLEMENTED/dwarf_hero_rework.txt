@@ -1,0 +1,8 @@
+Ok need to make dwarves more interesting.
+
+Give runesmith new passive:
+Lucky Rune --> 50% chance to not consume a consumable when it is used.
+
+Rework Ironclad to have these abilities:
+Shield Bash — Slam an adjacent enemy with your shield. Deals DEF damage (not ATK), pushes them 2 tiles, and stuns them for 1 turn. A tank that weaponizes their own tankiness.
+Give him passive "Spongey" that soaks up 50% of damage to adjacent allies.

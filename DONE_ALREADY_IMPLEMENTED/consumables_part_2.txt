@@ -1,0 +1,13 @@
+Ok more consumables rework.
+We need to add a set of consumables that DO spawn on the ground but are SEPARATE from the normal items that spawn on the ground.
+
+Treasure chest (generates some gold for u) -- can spawn on ground or in beast or in vendor
+Lumber pile (generates some wood for u) -- can spawn on ground or in beast or in vendor
+Stone pile (generates some stone for u) -- can spawn on ground or in beast or in vendor
+Water pouch (generates some water for u) -- can spawn on ground or in beast or in vendor
+Potion pouch --> every 2 turns it gives the holder a healing potion.  -- only spawn in beast or vendor
+Fresh fish --> heals, but less than a healing potion. -- only spawn in beast
+Petroleum jelly --> 100% dodge chance for 2 turns -- only spawn in beast or vendor
+Seed of God --> grow a block of trees around you -- only spawn in beast or vendor
+Muscle growth serum --> + some fair amt of strength permanently -- only spawn in beast or vendor
+Magic mirror --> make a copy of an item -- only spawn in beast or vendor

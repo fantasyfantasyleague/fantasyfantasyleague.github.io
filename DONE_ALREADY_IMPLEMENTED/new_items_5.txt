@@ -1,0 +1,5 @@
+2h Sword that gives you move speed buff for 3 turns when you hit an enemy.
+Madman's Greatsword -- 2h heavy weapon that does something if you are wearing no other armor/gear. Implement a cool passive that happens if  wearing no armor.
+A summon consumable item that summons two weak archers. Can spawn on ground/beast/vendor.
+Regeneration potion --> consumable grants regeneration for a fair number of turns. Can spawn on ground/beast/vendor.
+Add some items that just give straight up crit %. Like +5% +10% something small. Can be accessories and gloves and weapons. Add one to each category.

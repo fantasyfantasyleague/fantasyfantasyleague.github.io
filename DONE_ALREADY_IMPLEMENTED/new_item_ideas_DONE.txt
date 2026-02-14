@@ -1,0 +1,12 @@
+None of these items should grant stats, just the passives/active effects described.
+
+mechanical arm extender --> accessory. Gives passive that increases range of melee weapons by 1. ONLY WORKS ON MELEE WEAPONS
+lute --> two handed weapon. Has 0 atk, can't attack at all. grants passive to nearby allies (within 3 squares) that buffs with "Bardic inspiration" giving +2 attack.
+harp --> two handed weapon. Has 0 atk, can't attack at all. grants passive to buff nearby allies (within 3 squares) with "Bardic dance" --> +10% dodge.
+Suicide vest --> body armor. Grants action to kill the unit wearing it. At same time it will do 10 damage to all units in a 3 square radius. Including allies.
+scope --> accessory gives passive to increase ranged weapon range by 1. ONLY WORKS ON BOWS AND CROSSBOWS AND MAGIC RANGED WEAPONS.
+Precision scope --> accessory, grant action to do a guaranteed ranged hit with ONLY RANGED WEAPONS. 3 turn CD.
+Grappling hook --> offhand. Can pull any unit that is 2-5 squares away to you.
+Net --> offhand. Ensare a unit (can't move at all) for 2 turns. 4 turn CD.
+Cracked halo --> helmet. Gives action to create 10 temporary extra HP that lasts 3 turns.
+Ring of regeneration --> passive +1 hp regen per turn.

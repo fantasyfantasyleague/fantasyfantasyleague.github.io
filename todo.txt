@@ -1,0 +1,90 @@
+ranged attacks and items//
+update mouseover each stat to see what it does
+START W BASIC ITEMS NOT FULL LOADOUT//
+attack of opp stops movement and sets movement to 0 cant move//
+more factions//
+update hero powers --> more interesting... goblin one is dumb, dwarf one is dumb//
+more items with actions
+more hero types -- on game set up screen you select class?
+Each hero type has unique action and stats and gear.
+ohhhhh add asci art for each unit in like a side window that opens when you select them yeahhh
+abilities need to cause effects with aduration. Eg) reduce def for 2 turns. Set on fire for 1 turn.
+Then can turn this into item effects too eg fiery sword sets on fire.
+dwarves are pretty slow
+need to fix the rune_of_shatter ability --> duration instead of permanent
+
+
+Add a shop that spawns somewhere where you can buy an assortment of items with water.
+
+Fix balance --> agility is OP can get like 60% dodge.
+
+Add more factions:
+skeletons/./
+trolls//
+gnomes//
+
+
+Not working:
+opp attack from other players?//
+status effects on beasts not ticking down? on players?//
+ranged attack on beast should cause charge//
+
+refine status effects and weaponst that cause them. Add more.//
+
+Go through all heros and make them have simpler starter gear.//
+
+
+ADD PASSIVES//
+
+ADD CHAT BOX!//
+
+update file name so it is just player-name_turn-x.json.//
+
+How do handle weapons w actions if you unequip and then re-equip? Need to still keep track of cd.//
+
+oohhh add healing potion system. Where healing pots are used in reaction to attack. If hp drops below x or an attack would have killed use hp potion in inventory instead.
+How to get them?
+
+Make it so that you dont start w a hero but get to choose one on first turn. THen he spawns and can move etc.//
+
+Add more NPC enemies w diff stats. Some easier some harder.
+
+Give units passives.
+
+MAKE DODGING LESS OP.//
+
+Maybe each hero should have a totally unique passive that only they have?
+
+MORE FACTIONS:
+gnomes
+aquatic guys... mermen?
+
+OK MAKE IT SO YOU CHOOSE FACTION/HERO ON YOUR FIRST TURN. 
+THE HOST DOESNT HAVE TO CHOOSE.
+FIRST TURN YOU CANT DO SHIT ANYWAYS...
+
+
+check new factions' starting loadout. Bard starting unit should have new weapon.//
+
+use water to spawn items?
+
+IDEA: able to move all the windows around on the screen. And save location in local storage in browser. lol.
+
+NEW SHOP: buy resources with water.//
+
+Add enchantments for armor and weapons.
+
+Make shop refresh every 7 turns.//
+
+Dropped item decay.
+
+Make shields have a chance to protect from arrows. Like compeltely negate lioke dodge.
+
+convert all emojis to text variation i dont like the emojis: You add the text variation selector by placing this Unicode character immediately after the emoji:
+U+FE0E (Variation Selector-15) → forces text/monochrome style
+HTML code: &#65038;
+
+SOMEDAY: animated ascii art that changes to show selected unit. So would need one for every unit lol.
+
+
+ohhh add a match history board to the homescreen. I'll just hard-code the results.

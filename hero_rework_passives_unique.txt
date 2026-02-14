@@ -1,0 +1,18 @@
+goblin:
+-greed --> gen 1 gold per turn forever
+
+orc:
+-something to do with bleeding like when you make an enemy bleed status effect you heal or something
+
+dwarves:
+
+human:
+
+elves:
+-can move through trees
+
+-some sort of ambush passive -- like track if out of combat for 3 turns, then move into range, then attack --> ambush bonus
+
+New hero idea: centered around poison. Need to redo poison first so it stacks.
+
+REDO STARTING LOADOUTS FOR HEROS --> SOME ARE WAY TOO GOOD LIKE TROLL BERSERKER

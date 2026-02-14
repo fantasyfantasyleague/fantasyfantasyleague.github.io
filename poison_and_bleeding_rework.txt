@@ -1,0 +1,4 @@
+
+Rework status effects --> poison can stack up to 5
+bleeding is like poison but cant stack. Maybe armor is included in calc of hit chance too.
+burning is like poison but cant stack

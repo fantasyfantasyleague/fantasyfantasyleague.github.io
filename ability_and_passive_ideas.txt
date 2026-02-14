@@ -1,0 +1,22 @@
+like that water dota hero that can morph to boost different stats.
+mirror image --> generate 2 clones 
+muster workers to fight.
+throw units around (allies or enemies)
+passive that lets spears attack 2 spaces away 
+passive income 
+passive to protect from arrows -- some shields/items could have.
+passive ricochet ranged attacks can bounce to one guy 
+soul collector -- weapon collects kills and each kill adds +1 atk. Lost if dropped.
+Revive back at home base w 1hp on death. Only works once.
+Spongey absorb damage to adjacent tiles to protect allies.
+Bouncy -- when you get combat locked you bounce away in a random direction instead. Unless surrounded.
+Slippery -- immune to combat lock. 
+Pack hunter -- get bonus atk for nearby allies 
+Battle hunger -- more atk for nearby enemies
+Passive that is like worse chain lightning, just chance to hit nearby enemy, just one enemy.
+ --> but maybe it does the same dmg as the initial swing, so could be really good.
+
+
+
+ok yeah adjust weapons: spears attack 2 spaces away, axes are more likely to lock in combat.
+ Add OGRE faction and give them ability to throw enemies/allies really far.

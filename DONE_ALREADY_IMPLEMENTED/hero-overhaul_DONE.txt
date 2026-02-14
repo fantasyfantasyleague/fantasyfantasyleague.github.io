@@ -1,0 +1,7 @@
+//DONE//
+Each faction should have a choice of 3 different heroes on the game set up screen.
+Each faction should have unique heroes.
+Each hero should have a different loadout.
+Each hero should have a unique ability.
+Each hero should have different stats.
+Implement the above for each faction, generating appropriately named heroes for each faction.

@@ -1,0 +1,4 @@
+We need to rework these heros. 
+Replace commander with Wizard. A magical hero. Their ability will be Mirror Image which summons a copy that looks identical to them. And their passive will be "Mirrored" and makes it so whenever they attack WITH A MAGIC WEAPON ONLY their mirror image also attacks. If they shoot a fireball, their mirror image also does.
+
+Then rework paladin: action: consecrate, a damaging aura that also weakens. Applies to all enemies within 2 tiles. Lasts two turns, so damages during the turn used, and the next turn.

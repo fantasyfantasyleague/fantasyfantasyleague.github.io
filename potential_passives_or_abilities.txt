@@ -1,5 +1,0 @@
-retaliate --> when hit u hit back
-climbing
-water walking
-debuffs/dots --> like set enemy on fire or ensnare them
-units that provide buffs --> increasing move speed or range etc 

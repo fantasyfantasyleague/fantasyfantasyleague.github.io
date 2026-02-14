@@ -1,0 +1,9 @@
+Need a way for players to get resources once they become scarce.
+New merchant type: bazaar, always just 1 no matter map size. Should appear in a random place far away from players on turn 15.
+Always just has 3 things for sale, never runs out:
+sells stone, wood, gold. Each costs 1 water and gives 2 of the respective resource.
+Can also exchange any other resource for another but at a decreased ratio: if I want to turn wood into gold I need to exchange 2 wood for 1 gold. 
+
+Then, add a console command to fastforward through X number of turns.
+It will be /ff X 
+So /ff 10 will bring me to the beginning of player 1's 10th turn.

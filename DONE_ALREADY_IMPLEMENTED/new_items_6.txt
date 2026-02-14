@@ -1,0 +1,5 @@
+New consumables to add:
+combat regen potion --> consumable, can regen in combat. More expensive than normal one. can spawn on ground/beast/vendor
+treasure map --> spawns a high-value non-consumable somewhere on the map. can spawn on ground/beast/vendor
+Excalibur --> a consumable that can only be picked up if you have high strength: excalibur. A really good sword is granted on use. Can only spawn on ground.
+Asbestos applicator --> permanent immunity to being set on fire. Can only spawn in vendor.

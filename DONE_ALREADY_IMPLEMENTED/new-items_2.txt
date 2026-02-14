@@ -1,0 +1,5 @@
+More item ideas to implement:
+Horse --> accessory that makes you extremely fast.
+Accordion --> 2h weapon instrument that reduces dodge % of nearby enemies within 3 spaces
+grippers --> gloves that have no stats but allow you to hold both a 2h weapon AND an offhand item 
+gladiator net --> offhand that grants 100% combat lock chance

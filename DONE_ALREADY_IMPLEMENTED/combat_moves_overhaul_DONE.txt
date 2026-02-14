@@ -1,0 +1,12 @@
+We need more ways to keep people in combat.
+
+Add gloves with "grab" ability that prevents unit from running away for 1 turn.
+When hit in melee there should be a chance that a unit is locked in combat for 1 turn too.
+Make it something reasonable.
+When locked in combat, cant move away or use any movement abilities.
+This includes leap, teleportation cloak, disengage, etc etc.
+
+
+Halberd, spear, pike, hand axe, and shields should all increase chance to lock in combat.
+Make sure the item descriptions reflect this.
+And make sure players can tell when a unit is locked in combat.

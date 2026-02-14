@@ -1,0 +1,4 @@
+Ok we need to overhaul the unit and item system so that it is more interesting.
+First, some weapons need on-hit effects. Such as setting the enemy on fire, poisoning the enemy, snaring the enemy, chain lightning.
+Second, we need magic weapons. make the staves and scepters have ranged magic attacks instead of melee.
+Third, we need weapon proficiencies. Different

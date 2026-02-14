@@ -1,0 +1,6 @@
+lightning infused staff --> powerful staff that causes chain lightning on hit
+static armor --> body armor that has no defense but shocks the enemy when they attack you, causing 2-4 damage
+
+new consumables:
+Communist manifesto --> enemy workers go on strike and cant gather resources for 2 turns. Go through all enemy workers and give 2 turn debuff "on strike" prevent from gathering resources. Can be found in shop, on ground, on beasts.
+Strange Poultice --> gives divine_barrier temporary hp --> like healing potions can be found in shop or on beasts.

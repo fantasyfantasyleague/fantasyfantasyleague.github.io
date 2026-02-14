@@ -1,0 +1,9 @@
+Fishing rod --> Gives fishing action to target water to generate a Fresh Fish item in your inventory.
+Double edged sword --> 2h weapon hit twice but chance to cut yourself too, causing bleeding (new status effect?)
+Third leg --> accessory increase move speed by +2 maybe, do something else too.
+Pocket Pooka --> strange shapeshifting creature with glowing eyes in your pocket. does what?? Spawn a pooka that can fight for you. Add new pooka unit to handle this. Should be pretty powerful and costly in the shop.
+Tomb of Summon Zombie --> offhand, summon zombie warrior with basic gear and 10 hp
+Boomerang --> ranged weapon that hits multiple enemies in a line
+
+
+bug --> goblin pooka and goblin zombie can be built

@@ -1,0 +1,11 @@
+Ok replace Hoarder with Saboteur.
+
+He will have two abilities:
+Tunnel Entrance A 
+Tunnel Entrance B 
+They will both have separate 5 turn cooldowns.
+They create tunnel entrances that let you travel from A to B instantly.
+And any kobold unit can use it too.
+
+He will also have a passive: demolitionist --> does increased damage to buildings.
+He won't have the Resource Gathering passive.

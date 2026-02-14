@@ -1,0 +1,19 @@
+I would like to add passives/buffs to the game.
+Traits that happen on their own and modify a unit, are not activated.
+Here are the ones I would like to add:
+
+retaliate --> chance to hit back when hit by an adjacent unit
+climbing --> can move through rocks
+water walking --> can move through water
+haste --> add X move speed
+reflect --> chance to send a projectile back towards the attacker
+vampirism --> on successful hit heal 1-3 hp
+resource_gathering --> can gather resources. All workers should have this passive.
+poison_resistance --> immune to poison
+frost_resistance --> immune to being frozen 
+fire_resistance --> immune to being set on fire
+magic_resistance --> reduce magic damage by 2 eg) arcane blast from elf hero
+regeneration --> heal 2 per turn outside of combat instead of 1
+
+Add them to the game and give an easy way that I can assign them to specific units or items on my own.
+I want some units to innately possess some of these passives. And also to be able to bestow a passive on a unit with an item.

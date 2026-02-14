@@ -1,0 +1,7 @@
+We need player owned buildings/structures in the game.
+The structures will determine which units the player can build.
+For now, the only structure will be "barracks". But eventually each faction might have faction-unique buildings.
+And each faction will have a barracks eg "orc barracks" "dwarf barracks" etc.
+In the production window we need an option to build a barracks. It should cost a reasonable amt of wood and stone.
+If a player does not have a barracks, they can't build any warriors.
+Each player should start with a barracks in their starting area on turn 1.

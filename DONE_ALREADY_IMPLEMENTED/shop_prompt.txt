@@ -1,0 +1,14 @@
+Ok we want to add a new way to get more items.
+A shop that will be populated with random items.
+
+The shop should appear at a random point on the map far from other players.
+Eg if there are 4 players it might appear in the middle of the map.
+It is okay if it is encased in resources and players have to dig to get to it.
+
+How is it accessed? Any unit that is adjacent to it can purchase items for the player.
+
+On the first turn, it will be populated with 5 items.
+On player 1's turn, every ten turns, it will refresh and have 5 new items.
+
+Items will cost water.
+Determine appropriate item costs based on how good they seem to be in your opinion.

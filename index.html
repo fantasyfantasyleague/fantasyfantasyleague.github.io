@@ -16,9 +16,9 @@
     <div class="ascii-title"><div> ___         _                  ___         _                  _                           </div><div>| __|_ _ _ _| |_ __ _ ____  _  | __|_ _ _ _| |_ __ _ ____  _  | |   ___ __ _ __ _ _  _ ___ </div><div>| _/ _` | ' \  _/ _` (_-&lt; || | | _/ _` | ' \  _/ _` (_-&lt; || | | |__/ -_) _` / _` | || / -_)</div><div>|_|\__,_|_||_\__\__,_/__/\_, | |_|\__,_|_||_\__\__,_/__/\_, | |____\___\__,_\__, |\_,_\___|</div><div>                         |__/                           |__/                |___/          </div></div>
   </div>
   <!-- <div class="subtitle">A turn-based strategy game played over email</div> -->
-  <!-- <button class="btn" onclick="showSetup()">New Game</button> -->
-  <button class="btn" onclick="loadGame()">Load Game</button>
+  <button class="btn btn-load-game" onclick="loadGame()">Load Game</button>
   <input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileLoad(event)">
+  <button class="btn btn-new-game" id="new-game-btn" onclick="showSetup()">New Game</button>
 </div>
 
 <!-- ===== SETUP SCREEN ===== -->
@@ -59,6 +59,15 @@
   <div id="game-content">
     <!-- ASCII Art Sidebar -->
     <div id="ascii-sidebar">
+      <!-- Chat Window -->
+      <div class="panel-section" id="chat-panel">
+        <h3>Chat</h3>
+        <div id="chat-messages"></div>
+        <div id="chat-input-row">
+          <input type="text" id="chat-input" maxlength="250" placeholder="Type a message..." autocomplete="off" />
+          <button id="chat-send-btn" onclick="sendChat()">Send</button>
+        </div>
+      </div>
       <!-- Wizard animation -->
       <table>
         <tr id="animation-frame-1" class="animation-frame">
@@ -84,20 +93,16 @@
     <div id="board-container">
       <div id="game-header">
         <div class="turn-info" id="turn-info">Turn 1 - Player 1</div>
+        <div class="resources-display" id="resources-display"></div>
         <div class="header-buttons">
-          <button class="btn btn-small" onclick="saveGame()">Save</button>
-          <button class="btn btn-small btn-danger" onclick="endTurn()">End Turn</button>
+          <!-- <button class="btn btn-small" onclick="saveGame()">Save</button> -->
+          <button class="btn btn-small btn-danger" id="end-turn-btn" onclick="endTurn()">End Turn</button>
           <!-- <button class="btn btn-small" onclick="showMenu()">Menu</button> -->
         </div>
       </div>
       <div id="board"></div>
     </div>
     <div id="side-panel">
-      <!-- Resources -->
-      <div class="panel-section">
-        <h3>Resources</h3>
-        <div class="resources-display" id="resources-display"></div>
-      </div>
       <!-- Selected Unit -->
       <div class="panel-section" id="unit-panel" style="display:none;">
         <h3>Selected Unit</h3>
@@ -127,21 +132,45 @@
 
 <!-- ===== END TURN CONFIRM OVERLAY ===== -->
 <div id="end-turn-confirm-overlay">
-  <h2>End Turn?</h2>
-  <p>Are you sure you want to end your turn?</p>
+  <h2 id="end-turn-confirm-title">End Turn?</h2>
+  <p id="end-turn-confirm-msg">Are you sure you want to end your turn?</p>
   <div class="overlay-buttons">
     <button class="btn" onclick="cancelEndTurn()">Cancel</button>
-    <button class="btn btn-danger" onclick="confirmEndTurn()">End Turn</button>
+    <button class="btn btn-danger" id="end-turn-confirm-btn" onclick="confirmEndTurn()">End Turn</button>
   </div>
 </div>
 
 <!-- ===== TURN OVERLAY ===== -->
 <div id="turn-overlay">
   <h2 id="overlay-title">Turn Complete!</h2>
-  <p id="overlay-message">Save the game file and email it to the next player.</p>
+  <p id="overlay-message">Save the game file and email it to the next player, or click Continue for local play.</p>
   <div class="overlay-buttons">
     <button class="btn" onclick="saveGame()">Save Game</button>
-    <!-- <button class="btn btn-success" onclick="continueTurn()">Continue (Local Play)</button> -->
+    <button class="btn btn-success" id="continue-local-btn" onclick="continueTurn()">Continue (Local Play)</button>
+  </div>
+</div>
+
+<!-- ===== FACTION PICK OVERLAY ===== -->
+<div id="faction-pick-overlay">
+  <h2 id="faction-pick-player" style="font-family:Papyrus,fantasy;color:#FFD700;font-size:36px;filter:drop-shadow(0 0 5px #DAA520);">Player 1</h2>
+  <div class="faction-pick-box">
+    <h2 id="faction-pick-title">Choose Your Faction & Hero</h2>
+    <div id="faction-pick-others"></div>
+    <div class="setup-row">
+      <label>Faction:</label>
+      <select id="faction-pick-select" onchange="updateFactionPickHeroes()"></select>
+    </div>
+    <div class="setup-row" style="align-items:flex-start;">
+      <label style="padding-top:4px;">Hero:</label>
+      <div id="faction-pick-heroes" class="hero-picker"></div>
+    </div>
+    <div class="setup-row">
+      <label>Hero Name:</label>
+      <input type="text" id="faction-pick-heroname" placeholder="Enter hero name" style="width:160px;" oninput="document.getElementById('faction-pick-confirm').disabled=!this.value.trim()">
+    </div>
+    <div class="overlay-buttons" style="margin-top:16px;">
+      <button class="btn btn-success" id="faction-pick-confirm" onclick="confirmFactionChoice()" disabled>Confirm</button>
+    </div>
   </div>
 </div>
 

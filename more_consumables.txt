@@ -1,0 +1,5 @@
+scroll of swap -- swap w unit anywhere on map
+dynamite that can blow up resources 
+loaded dice -- guaranteed high roll next action 
+clone juice -- drink to create copy 
+coin -- can be flipped to do something... 
