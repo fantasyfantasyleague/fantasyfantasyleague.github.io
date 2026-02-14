@@ -1,9 +1,9 @@
 // ============================================================
 // FEATURE FLAGS
 // ============================================================
-const ALLOW_NEW_GAME = false;
-const ALLOW_LOCAL_PLAY = false;
-const ALLOW_CONSOLE_COMMANDS = false;
+const ALLOW_NEW_GAME = true;
+const ALLOW_LOCAL_PLAY = true;
+const ALLOW_CONSOLE_COMMANDS = true;
 
 // ============================================================
 // CONSTANTS
@@ -1493,7 +1493,7 @@ function startNewGame() {
 
   // Scatter loot items on the map
   const groundItems = [];
-  let numScattered = Math.max(3, Math.floor(boardSize * boardSize / 150));
+  let numScattered = Math.max(3, Math.floor(boardSize * boardSize / 110));
   if (boardSize > 24) numScattered += Math.floor((boardSize - 24) / 8) * 4;
   for (let attempt = 0, placed = 0; attempt < numScattered * 40 && placed < numScattered; attempt++) {
     const ix = Math.floor(Math.random() * boardSize);
@@ -1501,7 +1501,7 @@ function startNewGame() {
     if (board[iy][ix]) continue;
     if (units.some(u => u.x === ix && u.y === iy)) continue;
     if (units.some(u => chebyshevDist(u.x, u.y, ix, iy) < 3)) continue;
-    if (groundItems.some(gi => chebyshevDist(gi.x, gi.y, ix, iy) < 5)) continue;
+    if (groundItems.some(gi => chebyshevDist(gi.x, gi.y, ix, iy) < 4)) continue;
     const lootId = LOOT_ITEMS[Math.floor(Math.random() * LOOT_ITEMS.length)];
     groundItems.push({ x: ix, y: iy, item: JSON.parse(JSON.stringify(ITEMS[lootId])) });
     placed++;
@@ -1707,18 +1707,18 @@ function generateBoard(size, numPlayers) {
     }
   }
   for (const st of stoneTiles) {
-    if (Math.random() < 0.18) {
+    if (Math.random() < 0.24) {
       board[st.y][st.x] = { type: 'gold', amount: 2 + Math.floor(Math.random() * 3) };
     }
   }
-  const goldSeeds = Math.max(3, Math.floor(stoneTiles.length * 0.07));
+  const goldSeeds = Math.max(3, Math.floor(stoneTiles.length * 0.10));
   for (let i = 0; i < goldSeeds; i++) {
     if (stoneTiles.length === 0) break;
     const origin = stoneTiles[Math.floor(Math.random() * stoneTiles.length)];
     const dirs = [[-1,0],[1,0],[0,-1],[0,1]];
     for (const [dx, dy] of dirs) {
       const nx = origin.x + dx, ny = origin.y + dy;
-      if (nx >= 0 && nx < size && ny >= 0 && ny < size && !board[ny][nx] && Math.random() < 0.4) {
+      if (nx >= 0 && nx < size && ny >= 0 && ny < size && !board[ny][nx] && Math.random() < 0.5) {
         board[ny][nx] = { type: 'gold', amount: 2 + Math.floor(Math.random() * 2) };
       }
     }
@@ -4991,6 +4991,7 @@ function executeMirrorImage(unit) {
   };
 
   G.units.push(mirror);
+  G.nextUnitId = nextUnitId;
   startAbilityCooldown(unit, 'mirror_image');
   addLog(`🪞 ${getDisplayName(unit)} conjures a Mirror Image!`);
   renderAll();
