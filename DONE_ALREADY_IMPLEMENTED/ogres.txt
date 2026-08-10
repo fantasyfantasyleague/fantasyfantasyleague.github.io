@@ -1,0 +1,6 @@
+New faction Ogres:
+Two heroes for now:
+Big Hoss -- ability, can throw enemies or allies around. Select an adjacent unit then select a space to throw them to.
+Ogre Magi -- passive: when enemies take damage within 3 spaces around you, you gain a Static Charge. Ability: consume Static Charges to do dmg equal to number of charges you have.
+
+Elite unit: passive: sundering blows.

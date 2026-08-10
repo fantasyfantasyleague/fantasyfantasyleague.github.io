@@ -1,0 +1,7 @@
+New faction called "Trade Guild"
+Their heroes:
+Bejeweled Magnate: No ability but has 5 accessory slots and 2 offhand slots. But can't wear any armor.
+Resident Appraiser: ability: can destroy an item to gain all of its passives permanently. Eg) destroy voodoo_fiddle to gain its aura passive permanently even tho not holding the item.
+Bounty Hunter: mark a unit for death anywhere on map. They take increased damage and grant some gold on kill. Should apply a status effect to them so they know.
+
+Elite unit: Hired Guard. Weapon: shortbow. Passive: Overwatch.

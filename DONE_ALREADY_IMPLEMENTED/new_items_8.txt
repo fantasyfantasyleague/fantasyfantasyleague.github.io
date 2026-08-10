@@ -1,0 +1,5 @@
+Midas Gloves - hands chance when killing an enemy that they turn into a gold cell (like the gold resource yknow)
+Twinshot Arrow - accessory, no other stats, but gives passive that makes it so when you shoot at an enemy with BOWS ONLY you shoot twice
+Duellist's Pistol - offhand. No stats. But gives action to shoot at an enemy. Not much dmg but no cd.
+Sweeping Glaive -- 2h good stats, gives "sweeping strikes" passive: whenever you hit an enemy you do the same damage to ONE other adjacent enemy.
+Bow of Giants --> 2h bow. Has no normal attack. But gives active ability to fire a shot that does STR damage.

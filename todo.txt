@@ -88,3 +88,31 @@ SOMEDAY: animated ascii art that changes to show selected unit. So would need on
 
 
 ohhh add a match history board to the homescreen. I'll just hard-code the results.
+
+Enemy NPCs spawn throughout game
+
+Make it so units can move the same turn they are spawned. Not act, though.//
+
+idea for forge: maybe can research an item and then produce it? idk how to make it more interesting.
+Maybe research any item? Or bring an item you found and research it to copy?
+nah idk if i like this...
+
+Make it so lame basic items cant spawn on ground. OR in the shop...
+
+Maybe update so only Saboteur can go through the tunnel. Might be OP if everyone can... or the tunnel itself has a CD, not the units using it.
+
+Balance: i feel like you can do way too much dmg. I guess it's all ab armor.. 
+TWEAK DAMAGE -- stuff dies too fast. Or maybe armor is just really important?
+
+Make it so you cant move after attacking?
+
+Make it so you can click on a resource tile to see how much of it is left?
+
+
+Add a window that lists out all your units and you can click there to select them instead of clicking on the board.
+--> also could list out their hp/movement/action remaining etc... eg show if a worker can still gather.
+
+update item pick up to select one or many items. Instead of picking up all.
+ --> pick up action, and you dont select a tile, just shows all items around you. And you click "pick up" for each one you want.
+
+ update enemy NPCs -- weak ones just always die in one hit... lame

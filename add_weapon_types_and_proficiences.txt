@@ -1,0 +1,6 @@
+ok i added weapon and armor types
+
+should we make 2h vs 1h proficiency too? Like some units can only use 1h sword? yeah
+
+
+first pass:

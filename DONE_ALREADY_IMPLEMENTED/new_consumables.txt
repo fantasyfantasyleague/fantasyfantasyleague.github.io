@@ -1,0 +1,2 @@
+Scroll of retrieve ally -- select one of your units anywhere on map and they will be teleported to you.
+Scroll of Swap -- switch places with any unit on the map

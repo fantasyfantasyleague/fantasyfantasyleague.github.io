@@ -1,0 +1,31 @@
+reflect //
+
+Ok reflect is working on magic weapon attacks too, eg fire wand can be reflected. Fix this.//
+magic resistance -- i think it is wokring just wanst logging //
+
+fire resistance -- and adjust burning to 2dmg per turn...
+
+
+frozen status (and make it so when frozen you dont get attack of opp. Can freeze someone and run away.)
+tome of curses// it works
+can you shoot through blocks w ranged weapons? // no
+Overwatch passive// it works
+
+
+test:
+poison resistance?//
+fire resistance -- and adjust burning damage? should just be 2 dmg per turn?//
+hardening clay //
+frozen updates //
+
+
+
+chain lightning should work on rangede attack or no? idk how it works currently.
+ --> fix all orbs
+add more chain lightning weapons
+make it so you cant spawn guys through other blocks. meaning if a barracks range extends through a wall cant spawn through it get it?
+
+Test: self-buff items//
+test: bouncy helmet//
+
+ya you can shoot over walls as long as there is a route to the enemy. So as olong as they are not enclosed. Should be fixed. //

@@ -1,0 +1,5 @@
+First: fix Berserker Torc, make it grant you a Berserker passive for 2 turns (current turn, and ends next turn)
+One that grants double strike and that's it
+Blinking Amulet -- can blink 3 spaces -- out of combat, over walls, out of combat lock, etc.
+Smoke Bomb -- grants an aura, Concealed by Smoke, that prevents you and allies adjacent from being targeted by ranged attacks 
+Corrupted Chalice -- sacrifice 5 hp to heal an ally next to you for 5 hp 

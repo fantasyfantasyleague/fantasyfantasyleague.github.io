@@ -1,0 +1,13 @@
+add the following ranged magic weapons:
+They should all have a normal ranged attack like the other ones.
+But they are meant to not be as powerful
+ALL RANGED
+so they can inflict the following effects but without doing massive dmg:
+Haunted Bell - 1h has a "curse" action (no dmg) 
+Wand of Lethargy - 1h has a "slow" action (no dmg)
+Anemic Rod - 2h has a "weaken" action (no dmg)
+Grimoire of Gore - 2h can inflict bleed (no dmg)
+Frozen Sigil - 1h can freeze a target (no dmg)
+Fang-Tipped Wand - 1h has no action but gives holder vampirism 
+
+Also: check to make sure that magic resistance helps against all these weapons and their actions as well as the actions of the existing magic weapons.

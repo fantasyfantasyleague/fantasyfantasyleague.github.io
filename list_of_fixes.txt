@@ -1,0 +1,69 @@
+
+New building to add:
+armory where can learn new proficiencies for a price 
+
+New unit to add:
+ranged unit that is weak (for balance) 
+Built at just a normal barracks 
+
+playtest fixes:
+-redo morph -- make it only available for Agi/int/str/con, not other stats.
+-ogre shock guy, didnt get a static charge when using an item to attack. Any damage taken by enemy should generate a charge.
+-adjust auto-gather: should remember the type of resource the worker last mined. When auto is clicked harvest that resource or move twowrads nearest one. Should also be able to click to change it in the worker's UI.
+-workers should be able to gather same turn as built -- increase game speed
+-warriors etc should be able to attack same turn as built -- increase game speed
+-Workers across factions should all be the same. Make them all as good as elf workers.
+-bard guild crossbow for base warriors -- too good? yeah just give shortbow
+-twinshot arrow doesn't work? or does it just not work with the siren's "enchanting song"? do any of the shared passives work?
+
+playtest fixes 2:
+-morph --> increase amorphous blob base stats. Maybe he can reallocate stats from items too somehow?
+ --> maybe: give him 0 base stats, but a certain # of points to spend. Look at other heroes and see on average how many stat points they get. Increase it by a bunch since he cant wear any armor.
+
+
+playtest fixes 3:
+advanced forge --> adjust which items are sold here.
+
+
+Adjustments to production menu:
+break it into collapsable sections.
+Sections: buildings, units, converting stone to walls.
+
+
+TO DO BEFORE PLAYING NEXT:
+adjustment to UI -- menu getting too cluttered.
+add weak ranged unit
+
+
+ok big to do:
+go through each unit's proficiencies and make more interesting
+and make it so only some teams basic warriors can use bows
+remove ranged proficiencies from most warriors and elites
+
+buildings to add:
+one where you can modify/enchant items (eg make a weapon fiery?)
+one where you can learn new proficiencies?
+
+
+OK TO DO BEFORE PLAYING NEXT:
+
+add health bars//
+add little animation when an attack hits -- maybe like a blood spatter too //
+death animation //
+building animations (no blood spatter) //
+workers cant gather the same turn they are built.//
+make all workers just gather 1 resource per gather by default? upgrade w int gear?//
+add enchanting building //
+add new proficiencies building where units can train for a price//
+--> armory --> can pay a bunch to increase a unit type's armor proficiency level by 1 tier
+--> or teach them to use 2h weapons or osmething? idk
+more interesteing proficiencies -- adjust each team manually //
+--> especially wrt bows! each team has archer unit now//
+
+
+next to do:
+max army size?
+make most buildings cheaper? takes too long and too many buildings now
+implement new ux --> maybe when you click on a unit u can use number keys to select what oyu wanna do. To save clicking.
+
+fix advanced armor --> make the items all worse i think. worse but niche. and add more items to fit more roles.

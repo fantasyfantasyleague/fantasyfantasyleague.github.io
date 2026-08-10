@@ -1,0 +1,27 @@
+We need to rework NPCs in game.
+Right now we just have Foul Beasts
+But I want to have more. Some harder, some easier.
+Maybe one very powerful one always spawns? Find a big chunk of stone and put them in the middle so u have to dig to them.
+Then throughout the world sprinkle other creatures of varying difficulty.
+
+Enemy NPCs to add:
+Easy:
+bandit
+
+
+Medium:
+Warg
+
+
+Hard:
+Foul Beast (already exists)
+Stone Golem
+
+
+Very powerful, almost like a boss, should be carrying multiple powerful items:
+Ancient Dragon
+
+
+Based on diffuculty category, they should be holding loot based on value of loot items.
+All should have chance to have consumables.
+The harder they are the more items they should have. Max 3.

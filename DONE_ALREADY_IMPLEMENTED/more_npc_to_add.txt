@@ -1,0 +1,3 @@
+Easy: Rabid Rat
+Medium: Glowing Wisp
+Hard: Hydra

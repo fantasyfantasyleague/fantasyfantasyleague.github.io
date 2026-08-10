@@ -1,0 +1,9 @@
+New faction: gnomes
+
+Heroes:
+Sniper: Has no base attack. But has an extremely long ranged attack  with a 2 turn CD only if he is wielding a bow or gun.
+Should not have high movement.
+
+Mortar Technician: Has no normal attack. Every turn can use Mortar Strike ability that can attack over walls.
+
+Elite unit: Engineer. Weapon: offhand duellists_pistol, mainhand something else. Passive: Precision.

@@ -1,0 +1,4 @@
+Add new hero to merfolk faction: Tidewarden
+Ranged hero with a basic bow.
+Passive: Run and Gun --> this passive allows him to shoot and then move. Shooting doesnt prevent him from moving.
+Active ability: Harpoon shot --> select an enemy within 5 spaces, hook onto them, then for the rest of THIS TURN ONLY, when you move the enemy is dragged along with you.

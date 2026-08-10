@@ -4,3 +4,27 @@ what about equipping/unequipping mid turn to do a bunch of stuff.. its fine?
 ya make it so if you do an action you cant also equip/unequipping in same turn
 
 beast retalite? sometimes seems to retaliate twice?
+
+beast retaliate when range attack? should move closer AND should retaliate if adjacent
+
+
+I THINK I HAVE TO GO THROUGH AND ADD SHIELD PROFICIENCIES??? YEAH START W TROLLS AND GO DOWN LIST
+AND GO BACK THROUGH AND ADJUST: SOME UNITS SHOULD ONLY HAVE ACCESS TO 1H WEAPONS!
+
+retliate not working at all??
+
+combat still too sluggish -- a lot of units can't hit each other...
+
+lower cost of elite factory?//
+
+does tide warden run and gun work? i think it does he is just combat locked...//
+
+
+OK UNIT REDO:
+build ranged units 
+build magic units 
+then can make them weaker than normal units yeahhh 
+
+-like no one can wear plate...
+-add ability to build walls? or too slow and defensive?
+-some sort of advanced forge for making more advanced weapons that cost resources -- so you can like outfit your guys w good weapons that they are proficient in eg giving guns to guild bank hired gards or w/e

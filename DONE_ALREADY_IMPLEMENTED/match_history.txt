@@ -1,0 +1,9 @@
+On the home screen I want a new window to appear on the left maybe.
+"GAME HISTORY"
+It will show the history of the matches we have played.
+I'll just update it manually.
+Make it a table.
+First entry should have this info:
+dates: feb 11 2026 - feb 13 2026
+players: Hank (elves), Duncan (goblins), Stu (Dwarves)
+Victor: Stu (dwarves)

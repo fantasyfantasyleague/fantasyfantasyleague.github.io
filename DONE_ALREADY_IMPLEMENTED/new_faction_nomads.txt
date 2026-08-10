@@ -1,0 +1,10 @@
+I want to add a new faction to the game: Nomads
+They will have 3 heroes. I will describe their abilities but the stats and loadout are up to you:
+Steppe Lord: ability: every x turns generates an explosive barrel consumable. Using the consumable puts the barrel on the ground. When the barrel is on the ground, it explodes after being attacked or shot, doing AOE damage.
+Bandit king: ability: "poisonous shiv" instantly inflict maximum (5) stacks of poison to adjacent target. Short CD.
+Seer: ability: "rescue" teleport to an ally anywhere on the map and heal them instantly
+
+Elite unit: Nomad horseman, passive = sundering_blows
+
+
+Nomad updates:

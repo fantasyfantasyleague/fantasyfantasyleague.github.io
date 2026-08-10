@@ -1,0 +1,10 @@
+New structure: Forge.
+I want a way for players to produce their own equipment items.
+But only basic ones.
+New forge structure.
+Maybe the available items would be based on the item value?
+So only cheap ones available.
+Start with some basic items --> BUT I WANT ABILITY FOR EACH FACTION TO OVERRIDE WHAT IS AVAILABLE TO GIVE SOME UNIQUENESS.
+But does give players ability to customize loadouts. Or beef up their warriors more easily.
+And maybe doesn't cost anything? Can produce 1 item per turn.
+What happens when you produce an item? Producing an item is like buying from a shop, you move an item adjacent to forge and click produce item button then select the item.

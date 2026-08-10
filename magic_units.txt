@@ -1,0 +1,9 @@
+need to add a new unit and new building.
+Each faction needs a new mage_tower building.
+But for each faction it will have a different, faction-appropriate name.
+The mage tower costs 5 stone and 5 wood to build.
+And it produces Mages (for humans, for other factions diff name).
+Are like warriors, but have low health and low movement.
+And they can only wear cloth.
+And can only use magic weapons.
+They cost the same as a warrior.

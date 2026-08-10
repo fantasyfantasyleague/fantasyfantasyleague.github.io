@@ -4,21 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fantasy Fantasy League</title>
-<link rel="stylesheet" href="styles.css?v=1">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- ===== MENU SCREEN ===== -->
 <div id="menu-screen" class="screen active">
+  <div class="menu-layout">
+    <div class="game-history">
+      <h3>⚔ GAME HISTORY ⚔</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Dates</th>
+            <th>Players</th>
+            <th>Victor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Feb 11 – Feb 13, 2026</td>
+            <td>Hank (Elves), Duncan (Goblins), Stu (Dwarves)</td>
+            <td class="victor">🏆 Stu (Dwarves)</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Feb 13 – ??, 2026</td>
+            <td>Hank (Humans), Duncan (Trolls), Stu (Goblins), Tighe (Elves)</td>
+            <td class="victor">🏆 TBD</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Feb 14 – 22, 2026</td>
+            <td>Hank (Kobolds), Duncan (Orcs), Stu (Dwarves)</td>
+            <td class="victor">🏆 Stu (Dwarves)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="menu-center">
       <div class="ascii-knight"><div>                ,;~;,                                        </div><div>                   /\_                                       </div><div>                  (  /                                       </div><div>                  (()      //)                               </div><div>                  | \\  ,,;;'\                               </div><div>              __ _(  )m=(((((((((((((================--------</div><div>            /'  ' '()/~' '.(, |                              </div><div>         ,;(      )||     |  ~                               </div><div>        ,;' \    /-(.;,   )                                  </div><div>             ) /       ) /                                   </div><div>            //         ||                                    </div><div>           )_\         )_\                                   </div></div>
 
-  <div class="ascii-banner">
-    <div class="ascii-title"><div> ___         _                  ___         _                  _                           </div><div>| __|_ _ _ _| |_ __ _ ____  _  | __|_ _ _ _| |_ __ _ ____  _  | |   ___ __ _ __ _ _  _ ___ </div><div>| _/ _` | ' \  _/ _` (_-&lt; || | | _/ _` | ' \  _/ _` (_-&lt; || | | |__/ -_) _` / _` | || / -_)</div><div>|_|\__,_|_||_\__\__,_/__/\_, | |_|\__,_|_||_\__\__,_/__/\_, | |____\___\__,_\__, |\_,_\___|</div><div>                         |__/                           |__/                |___/          </div></div>
+      <div class="ascii-banner">
+        <div class="ascii-title"><div> ___         _                  ___         _                  _                           </div><div>| __|_ _ _ _| |_ __ _ ____  _  | __|_ _ _ _| |_ __ _ ____  _  | |   ___ __ _ __ _ _  _ ___ </div><div>| _/ _` | ' \  _/ _` (_-&lt; || | | _/ _` | ' \  _/ _` (_-&lt; || | | |__/ -_) _` / _` | || / -_)</div><div>|_|\__,_|_||_\__\__,_/__/\_, | |_|\__,_|_||_\__\__,_/__/\_, | |____\___\__,_\__, |\_,_\___|</div><div>                         |__/                           |__/                |___/          </div></div>
+      </div>
+      <!-- <div class="subtitle">A turn-based strategy game played over email</div> -->
+      <button class="btn btn-load-game" onclick="loadGame()">Load Game</button>
+      <input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileLoad(event)">
+      <button class="btn btn-new-game" id="new-game-btn" onclick="showSetup()">New Game</button>
+    </div>
   </div>
-  <!-- <div class="subtitle">A turn-based strategy game played over email</div> -->
-  <button class="btn btn-load-game" onclick="loadGame()">Load Game</button>
-  <input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFileLoad(event)">
-  <button class="btn btn-new-game" id="new-game-btn" onclick="showSetup()">New Game</button>
 </div>
 
 <!-- ===== SETUP SCREEN ===== -->
@@ -82,7 +119,7 @@
         </tr>
       </table>
       <!-- Sword -->
-      <table style="background-color: forestgreen; color: greenyellow;">
+      <table style="background-color: forestgreen; color: greenyellow; transform: scaleX(-1)">
         <tr>
           <td>
             <div style="width: 230px; font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:14px;white-space: pre;"><div class="handle">        _              </div><div class="handle">       (_)             </div><div class="handle">       |=|             </div><div class="handle">       |=|             </div><div class="handle">   /|__|_|__|\         </div><div class="handle">  (    <span class="gem">( )</span>    )        </div><div class="handle">   \|\/\"/\/|/         </div><div class="blade">     |  Y  |           </div><div class="blade">     |  |  |           </div><div class="blade">     |  |  |           </div><div class="rock">    _<span class="blade">|  |  |</span>           </div><div class="rock"> __/ <span class="blade">|  |  |</span>\          </div><div class="rock">/  \ <span class="blade">|  |  |</span>  \        </div><div class="rock">   __<span class="blade">|  |  |</span>   |       </div><div class="rock">/\/  <span class="blade">|  |  |</span>   |\      </div><div class="rock"> &lt;   +\ <span class="blade">|  |</span>\ /&gt;  \    </div><div class="rock">  &gt;   + \  <span class="blade">|</span> LJ    |   </div><div class="rock">        + \<span class="blade">|</span>+  \  &lt; \  </div><div class="rock">  <span style="color: red">(O)</span>      +    |    ) </div><div class="rock">   <span class="plant">|</span>             \  /\ </div><div class="rock"> <span class="plant">( | )</span>   <span style="color:red">(o)</span>      \/  )</div><div class="plant">_\\|//__( | )______<span class="rock">)_/</span> </div><div class="rock">        <span class="plant">\\|//</span>          </div></div>
@@ -94,6 +131,7 @@
       <div id="game-header">
         <div class="turn-info" id="turn-info">Turn 1 - Player 1</div>
         <div class="resources-display" id="resources-display"></div>
+        <button class="btn btn-small btn-auto-gather" onclick="autoGatherAll()" data-tip="All your workers will gather the nearest resource. Workers not adjacent to a resource will move towards the closest one.">⛏ Auto Gather</button>
         <div class="header-buttons">
           <!-- <button class="btn btn-small" onclick="saveGame()">Save</button> -->
           <button class="btn btn-small btn-danger" id="end-turn-btn" onclick="endTurn()">End Turn</button>
@@ -103,9 +141,7 @@
       <div id="board"></div>
     </div>
     <div id="side-panel">
-      <!-- Selected Unit -->
       <div class="panel-section" id="unit-panel" style="display:none;">
-        <h3>Selected Unit</h3>
         <div class="unit-info-block" id="unit-info"></div>
       </div>
       <!-- Actions -->
@@ -127,6 +163,16 @@
         <div id="combat-log"></div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ===== PICK UP OVERLAY ===== -->
+<div id="pickup-overlay">
+  <div class="pickup-box">
+    <button class="pickup-close-btn" onclick="closePickupOverlay()">&times;</button>
+    <h2>Pick Up Items</h2>
+    <div id="pickup-item-list"></div>
+    <div id="pickup-all-wrap"></div>
   </div>
 </div>
 
@@ -174,7 +220,7 @@
   </div>
 </div>
 
-<script src="game.js?v=1"></script>
+<script src="game.js"></script>
 <script>
 // Wizard animation
 function startAnimation() {

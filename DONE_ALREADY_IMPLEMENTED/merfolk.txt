@@ -1,0 +1,10 @@
+New faction: merfolk.
+Important: ALL UNITS HAVE SWIMMING PASSIVE, INCL WARRIORS WORKERS ELITES HEROES ETC
+
+Elite: passive: weightless
+
+Heroes, just one for now:
+Amorphous Blob: No armor slots. Just mainhand and offhand.
+Passive: new one: Dual wield: can equip weapons in offhand slot. When you attack you swing twice, once with each hand.
+Active: Morph --> brings up new window where the player can reallocate stats. Eg) move all agi points into strength, all strength into movement, etc.
+How often can you morph? Once per turn.

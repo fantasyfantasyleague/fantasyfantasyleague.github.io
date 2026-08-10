@@ -1,0 +1,14 @@
+Rework poison:
+Poison is now stacking.
+Up to 5. max 
+Lasts only 2 turns
+But applying another stack refreshes this.
+Dmg increases based on stacks.
+So like this:
+stack 1 --> 1 dmg 
+stack 2 --> 1 dmg 
+stack 3 --> 2 dmg 
+stack 4 --> 2 dmg 
+stack 5 --> 3 dmg
+
+And it loses stacks all at once, not gradually.

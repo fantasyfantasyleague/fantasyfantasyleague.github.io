@@ -1,0 +1,8 @@
+Adding a new structure, similar to barracks but for building workers.
+Each team should start with a town hall (similar to barracks)
+This lets them build workers.
+If it is destroyed they can't build any more workers.
+Workers can build town halls now. Should be expensive.
+Worker can build town hall in adjacent square.
+A new town hall means you can build other structures/units in a new location.
+So, eg, when producing a new worker you could select the area around the old town hall OR the new one.

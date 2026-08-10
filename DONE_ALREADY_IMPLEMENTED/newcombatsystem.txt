@@ -1,0 +1,6 @@
+We need to rework combat system.
+New way: when you attack there are two rolls that happen.
+First you roll to hit, this is ATK vs DEF as it is right now.
+Second, you roll to determine dmg. This is based on ATK, but it can't be too op where everyone is one-shotting. 
+This way, if you just barely hit an enemy, you can still do decent dmg.
+DEF has no effect on dmg, only on if a unit is hit or not.
